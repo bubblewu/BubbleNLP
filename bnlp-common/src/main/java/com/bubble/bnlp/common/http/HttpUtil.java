@@ -13,6 +13,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * HTTP工具包
+ * HTTPClient工具包
  *
  * @author wugang
  * date: 2018-09-27 17:13
@@ -43,8 +45,12 @@ public class HttpUtil {
         hc = builder.build();
     }
 
-    public static void main(String[] args) {
-        LOGGER.info("test");
+    public static Document doGetDoc(String url) {
+        return Jsoup.parse(doGet(url));
+    }
+
+    public static Document doPostDoc(String url, Map<String, String> paramsMap) {
+        return Jsoup.parse(doPost(url, paramsMap));
     }
 
     /**
@@ -53,7 +59,7 @@ public class HttpUtil {
      * @param url url
      * @return 正常200返回页面内容, 如果状态码是302, 则返回重定向后的url, 其他情况, 返回状态码
      */
-    public static String getContextByUrl(String url) {
+    public static String doGet(String url) {
         HttpUriRequest request = new HttpGet(url);
         String re = "";
         try {
@@ -62,7 +68,7 @@ public class HttpUtil {
                 int statusCode = hr.getStatusLine().getStatusCode();
                 if (statusCode == HttpStatus.SC_OK) {
                     HttpEntity entity = hr.getEntity();
-                    re = EntityUtils.toString(entity, "utf-8");
+                    re = EntityUtils.toString(entity, DEFAULT_CHARSET);
                     EntityUtils.consume(entity);
                 } else if (statusCode == HttpStatus.SC_MOVED_TEMPORARILY) {
                     Header ha = hr.getFirstHeader("Location");
@@ -85,11 +91,11 @@ public class HttpUtil {
     /**
      * POST请求
      *
-     * @param url 地址
-     * @param map POST参数
+     * @param url       地址
+     * @param paramsMap POST参数
      * @return 响应结果
      */
-    public static String doPost(String url, Map<String, String> map) {
+    public static String doPost(String url, Map<String, String> paramsMap) {
         String result = null;
         HttpPost httpPost;
         try {
@@ -97,7 +103,7 @@ public class HttpUtil {
             httpPost = new HttpPost(url);
             //设置参数
             List<NameValuePair> list = new ArrayList<>();
-            Iterator iterator = map.entrySet().iterator();
+            Iterator iterator = paramsMap.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry<String, String> elem = (Map.Entry<String, String>) iterator.next();
                 list.add(new BasicNameValuePair(elem.getKey(), elem.getValue()));
