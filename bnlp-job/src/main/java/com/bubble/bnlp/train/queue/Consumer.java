@@ -17,12 +17,20 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        try {
-            String value = queue.take();//如果队列为空，会阻塞当前线程
-            System.out.println(value);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                String value = queue.take();//如果队列为空，会阻塞当前线程
+                System.out.println(value);
+                if ("END".equals(value)) {
+                    queue.put("END");
+                    break;
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        System.out.println("consumer done." +  Thread.currentThread().getName());
+
     }
 
 }

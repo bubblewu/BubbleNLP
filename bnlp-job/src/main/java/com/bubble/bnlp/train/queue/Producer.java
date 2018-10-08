@@ -19,11 +19,26 @@ public class Producer implements Runnable {
     public void run() {
         String value = "生产线程：" + Thread.currentThread().getName();
         System.out.println("I have made a product:" + Thread.currentThread().getName());
+//        try {
+//            queue.put(value);//如果队列是满的话，会阻塞当前线程
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                queue.put(String.valueOf(i));//如果队列是满的话，会阻塞当前线程
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         try {
-            queue.put(value);//如果队列是满的话，会阻塞当前线程
+            queue.put("END");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        System.out.println("producer done. " +  Thread.currentThread().getName());
     }
 
 }
