@@ -18,8 +18,8 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         try {
-            String temp = queue.take();//如果队列为空，会阻塞当前线程
-            System.out.println(temp);
+            String value = queue.take();//如果队列为空，会阻塞当前线程
+            System.out.println(value);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

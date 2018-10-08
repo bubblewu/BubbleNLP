@@ -15,7 +15,6 @@ public class QueueMain {
         //LinkedBlockingQueue默认大小为Integer.MAX_VALUE; FIFO先进先出
         BlockingQueue<String> queue = new LinkedBlockingDeque<>(2);
         Producer producer = new Producer(queue);
-
         Consumer consumer = new Consumer(queue);
         for (int i = 0; i < 5; i++) {
             new Thread(producer, "Producer" + (i + 1)).start();
