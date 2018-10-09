@@ -3,8 +3,6 @@ package com.bubble.bnlp.train.queue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -97,12 +95,9 @@ public class ProducerConsumerDemo {
                     new ArrayBlockingQueue<>(50),
                     new ThreadPoolExecutor.CallerRunsPolicy());
             LOGGER.info("用户数据消费者已启动.");
-            List<Integer> phoneIdCountList = new ArrayList<>();
-            List<Integer> consumeNums = new ArrayList<>();
 
             for (int i = 0; i < DEFAULT_CONSUMER_NUM; i++) {
                 Thread t = new Thread() {
-                    int phoneIdTotal = 0;
                     int step = 0;
                     int consumerNum = 0;
 
@@ -134,7 +129,6 @@ public class ProducerConsumerDemo {
                                 LOGGER.error("从phoneIdQueue中取数据错误.", e);
                             }
                         }
-                        consumeNums.add(consumerNum);
 
                         LOGGER.info("[{}]线程共消费数据{}条", this.getName(), consumerNum);
                         LOGGER.info("数据消费结束.");
@@ -158,7 +152,7 @@ public class ProducerConsumerDemo {
         public void run() {
             add();
             try {
-                // 在队列（FIFO）末尾添加标识
+                // 给每个线程都在队列（FIFO）末尾添加标识
                 phoneIdQueue.put(STOP_FLAG);
             } catch (InterruptedException e) {
             }
@@ -184,11 +178,7 @@ public class ProducerConsumerDemo {
                     e.printStackTrace();
                 }
             }
-            try {
-                phoneIdQueue.put(STOP_FLAG);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             i += step;
         }
 
