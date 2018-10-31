@@ -51,10 +51,10 @@ public class ProducerConsumerDemo {
     private void threadMonitor(ThreadPoolExecutor executor) {
         Runnable runnable = () -> {
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(2000);
                 while (executor.getActiveCount() > 0) {
                     System.out.println("sleep 1000");
-                    TimeUnit.SECONDS.sleep(1);
+                    TimeUnit.SECONDS.sleep(1000);
                 }
                 executor.shutdown();
             } catch (InterruptedException e) {

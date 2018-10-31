@@ -13,6 +13,7 @@
         <module>bnlp-data</module>
         <module>bnlp-service</module>
         <module>bnlp-job</module>
+        <module>bnlp-study</module>
     </modules>
     <name>BubbleNLP</name>
 
