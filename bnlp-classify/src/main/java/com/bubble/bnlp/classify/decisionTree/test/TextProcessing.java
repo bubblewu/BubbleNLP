@@ -15,25 +15,25 @@ public class TextProcessing {
 
     class Result {
         public String ResultName;
-        public ArrayList<String> ResultList = new ArrayList<String>();
-        public HashMap<String, Integer> Result_Count = new HashMap<String, Integer>();
+        public ArrayList<String> ResultList = new ArrayList<>();
+        public HashMap<String, Integer> Result_Count = new HashMap<>();
     }
 
     class Attribute {
         public String AttributeName;
-        public HashMap<String, Situation> SituationMap = new HashMap<String, Situation>();
-        public HashMap<String, Integer> Situation_Count = new HashMap<String, Integer>();
+        public HashMap<String, Situation> SituationMap = new HashMap<>();
+        public HashMap<String, Integer> Situation_Count = new HashMap<>();
     }
 
     class Situation {
         public String SituationName;
-        public HashMap<String, Integer> Result_Count = new HashMap<String, Integer>();
+        public HashMap<String, Integer> Result_Count = new HashMap<>();
     }
 
     public Result objResult = new Result();
-    public ArrayList<Attribute> objAttributeList = new ArrayList<Attribute>();
+    public ArrayList<Attribute> objAttributeList = new ArrayList<>();
     public String Headers[];
-    public List<String> textList = new ArrayList<String>();
+    public List<String> textList = new ArrayList<>();
 
     public void readText(String fileName) throws Exception {
 //        List<String> textList = FileUtils.readLines(file);
@@ -126,9 +126,9 @@ public class TextProcessing {
     }
 
     public void show() {
-        System.out.println(objResult.ResultName + "\t" + objResult.ResultList.size());
+        System.out.println("类字段名为：" + objResult.ResultName + "\t 值的种类数量为" + objResult.ResultList.size());
         for (String ResultName : objResult.Result_Count.keySet()) {
-            System.out.println("ResultName = " + ResultName + "\t" + objResult.Result_Count.get(ResultName));
+            System.out.println("(class value -> count)  = " + ResultName + "\t -> " + objResult.Result_Count.get(ResultName));
         }
         for (int i = 0; i < objResult.ResultList.size(); i++) {
             System.out.println(objResult.ResultList.get(i));

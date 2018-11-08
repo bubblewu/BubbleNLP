@@ -2,10 +2,17 @@ package com.bubble.bnlp.classify.decisionTree;
 
 import com.bubble.bnlp.classify.decisionTree.id3.TreeNode;
 import com.google.common.collect.Maps;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -151,7 +158,7 @@ public class DecisionTreeUtils {
     /**
      * 打印ID3决策树
      *
-     * @param node 结点
+     * @param node   结点
      * @param prefix 定义输出前缀
      */
     public static void showDecisionTree(TreeNode node, String prefix) {
@@ -169,5 +176,43 @@ public class DecisionTreeUtils {
             showDecisionTree(child, prefix);
         }
     }
+
+    public static void saveTree2XML(TreeNode treeNode, String modelFile) {
+        Document xml = DocumentHelper.createDocument();
+        Element root = xml.addElement("root");
+        Element nextNode = root.addElement("DecisionTree");
+        toXML(treeNode, nextNode);
+        System.out.println(xml.asXML());
+        OutputFormat format = OutputFormat.createPrettyPrint();
+        try {
+            Writer fileWriter = new FileWriter(modelFile);
+            XMLWriter output = new XMLWriter(fileWriter, format);
+            output.write(xml);
+            output.close();
+        } catch (IOException e) {
+            LOGGER.error("save decision tree as xml error.", e);
+        }
+    }
+
+    private static void toXML(TreeNode treeNode, Element node) {
+        if (null == treeNode.getChildNodes()) {
+            return;
+        }
+
+        treeNode.getChildNodes().forEach(childNode -> {
+            Element nextNode = node.addElement(treeNode.getAttributeName());
+            System.out.println(treeNode.getAttributeName());
+            System.out.println("ps -> " + childNode.getParentStatus());
+            nextNode.addAttribute("value", childNode.getParentStatus());
+            if (childNode.isLeaf()) {
+                System.out.println("an = " + childNode.getAttributeName());
+                nextNode.setText(childNode.getAttributeName());
+            }
+            toXML(childNode, nextNode);
+        });
+
+
+    }
+
 
 }

@@ -1,10 +1,7 @@
 package com.bubble.bnlp.classify.decisionTree.id3;
 
 import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.id3.client.ID3Client;
-import com.bubble.bnlp.classify.decisionTree.id3.core.ID3Core;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,12 +10,13 @@ import java.util.List;
  **/
 public class ID3Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        ID3Model id3Model = new ID3Model();
         String fileName = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/id3/weather.txt";
         List<List<String>> currentData = DecisionTreeUtils.getTrainingData(fileName);
-        ID3Core core = new ID3Core();
-        ID3Client id3Client = new ID3Client();
-        id3Client.createDecisionTree(core, currentData);
+        TreeNode treeNode = id3Model.createDecisionTree(currentData);
+        DecisionTreeUtils.showDecisionTree(treeNode, "");
+        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/id3/out.xml");
     }
 
 }

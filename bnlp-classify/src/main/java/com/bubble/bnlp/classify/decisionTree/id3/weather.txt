@@ -13,3 +13,10 @@ Day OutLook Temperature Humidity Wind PlayTennis
 12 Overcast Mild High Strong Yes
 13 Overcast Hot Normal Weak Yes
 14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No
+14 Rainy Mild High Strong No

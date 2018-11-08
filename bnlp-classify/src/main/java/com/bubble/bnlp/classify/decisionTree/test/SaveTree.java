@@ -25,7 +25,7 @@ public class SaveTree {
         toXML( treeRoot, nextNode );
         System.out.println(xmlDoc.asXML());
         OutputFormat format = OutputFormat.createPrettyPrint();
-        Writer fileWriter = new FileWriter("/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/output.xml");
+        Writer fileWriter = new FileWriter("/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/output-weather.xml");
         XMLWriter output = new XMLWriter( fileWriter, format );
         output.write(xmlDoc);
         output.close();

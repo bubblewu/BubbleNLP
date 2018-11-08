@@ -1,7 +1,7 @@
 package com.bubble.bnlp.classify.decisionTree.id3;
 
+import com.bubble.bnlp.bean.exception.DecisionTreeException;
 import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,20 +30,26 @@ public class InformationGain {
      * @return 最大信息增益值和对应特征（最优特征）
      */
     public static Map<String, Double> maxInformationGain(List<List<String>> dataSet) {
+        if (null == dataSet) {
+            LOGGER.error("data set is null, get attribute name error.");
+            throw new DecisionTreeException("data set is null, get feature name error.");
+        }
+        List<String> featureNameList = dataSet.get(0);
+        List<String> featureNames = getFeatureNames(featureNameList);
+
         Map<String, Double> maxIGMap = Maps.newHashMap();
-        List<String> attributeNames = getAttributeNames(dataSet);
         double maxIG = -1;
-        String maxIGAttributeName = "";
+        String maxIGFeatureName = "";
         // 计算每个特征的信息增益, 选择IG最大的特征
-        for (String attributeName : attributeNames) {
-            double currentIG = currentAttributeInformationGain(dataSet, attributeName);
-            LOGGER.info("current ig value: {}", currentIG);
+        for (String featureName : featureNames) {
+            double currentIG = currentFeatureInformationGain(dataSet, featureName);
+            LOGGER.info("current information gain value: {}", currentIG);
             if (maxIG < currentIG) {
                 maxIG = currentIG;
-                maxIGAttributeName = attributeName;
+                maxIGFeatureName = featureName;
             }
         }
-        maxIGMap.put(maxIGAttributeName, maxIG);
+        maxIGMap.put(maxIGFeatureName, maxIG);
         return maxIGMap;
     }
 
@@ -51,11 +57,11 @@ public class InformationGain {
      * 计算当前特征的信息增益: g(D|A) = H(D) - H(D|A)
      *
      * @param dataSet       数据集
-     * @param attributeName 当前特征名
+     * @param featureName 当前特征名
      * @return 信息增益值
      */
-    private static double currentAttributeInformationGain(List<List<String>> dataSet, String attributeName) {
-        return empiricalEntropy(dataSet) - conditionalEntropy(dataSet, attributeName);
+    private static double currentFeatureInformationGain(List<List<String>> dataSet, String featureName) {
+        return empiricalEntropy(dataSet) - conditionalEntropy(dataSet, featureName);
     }
 
     /**
@@ -171,18 +177,14 @@ public class InformationGain {
     }
 
     /**
+     * 获取数据集中的特征名称
      * 数据集第一行特征的属性名,过滤列名和类名
      *
-     * @param currentData 数据集
+     * @param featureNameList 特征名称集合
      * @return 所有的特征名集合
      */
-    private static List<String> getAttributeNames(List<List<String>> currentData) {
-        if (null == currentData) {
-            LOGGER.warn("data set is null, get attribute name error.");
-            return Lists.newArrayList();
-        }
-        List<String> attributeNames = currentData.get(0);
-        return attributeNames.stream().skip(1).limit(attributeNames.size() - 2)
+    private static List<String> getFeatureNames(List<String> featureNameList) {
+        return featureNameList.stream().skip(1).limit(featureNameList.size() - 2)
                 .collect(Collectors.toList());
     }
 

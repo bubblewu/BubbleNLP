@@ -24,6 +24,11 @@
     <dependencies>
         <dependency>
             <groupId>com.bubble.bnlp</groupId>
+            <artifactId>bnlp-bean</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bubble.bnlp</groupId>
             <artifactId>bnlp-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

@@ -12,9 +12,12 @@ import java.util.List;
 public class TreeNode {
 
     private String attributeName;
+    private String parentStatus; // 父点的状态（表示的是从父节点过度到当前节点时的状态）
+
+    private String node; // 结点，即特征
+    private String directedEdgeValue; // 有向边的值，即特征值
     private List<TreeNode> childNodes;
-    private String parentStatus; // 父节点的状态（表示的是从父节点过度到当前节点时的状态）
-    private boolean isLeaf = false; // 是否是叶子节点
+    private boolean isLeaf = false; // 是否是叶结点
 
     public TreeNode(String attributeName) {
         this.attributeName = attributeName;
