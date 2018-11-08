@@ -56,37 +56,37 @@ public class DecisionTreeUtils {
     }
 
     /**
-     * 获得目标属性在原数据中所处的列索引
+     * 获得目标特征在原数据中所处的列索引
      *
-     * @param attributeNames 数据的所有特征属性
-     * @param attribute      目标特征属性
+     * @param featureNames 数据的所有特征属性
+     * @param featureName  目标特征
      * @return 列索引
      */
-    public static int getAttributeIndex(List<String> attributeNames, String attribute) {
-        int attributeIndex = 0;
-        for (String attributeName : attributeNames) {
-            if (attribute.equals(attributeName)) {
+    public static int getFeatureIndex(List<String> featureNames, String featureName) {
+        int featureIndex = 0;
+        for (String feature : featureNames) {
+            if (featureName.equals(feature)) {
                 break;
             }
-            attributeIndex++;
+            featureIndex++;
         }
-        return attributeIndex;
+        return featureIndex;
     }
 
     /**
      * 获取某特征下各个特征值所对应的类值分布
      *
-     * @param dataSet        数据集D
-     * @param attributeIndex 目标特征的列索引
+     * @param dataSet      数据集D
+     * @param featureIndex 目标特征的列索引
      * @return eg: {Rainy={No=2, Yes=3}, Sunny={No=3, Yes=2}}
      */
-    public static Map<String, Map<String, Integer>> getAttributeClassValueMap(List<List<String>> dataSet, int attributeIndex) {
+    public static Map<String, Map<String, Integer>> getAttributeClassValueMap(List<List<String>> dataSet, int featureIndex) {
         Map<String, Map<String, Integer>> attributeCVMap = Maps.newHashMap();
         for (int rowIndex = 1; rowIndex < dataSet.size(); rowIndex++) {
             // 每行的特征值数据
             List<String> rowData = dataSet.get(rowIndex);
             // 获取当前特征的值
-            String attributeValue = rowData.get(attributeIndex);
+            String attributeValue = rowData.get(featureIndex);
             // 获取当前特征值对应的类值
             String classValue = rowData.get(rowData.size() - 1);
 
@@ -111,16 +111,16 @@ public class DecisionTreeUtils {
     /**
      * 获取某特征下的所有特征值
      *
-     * @param dataSet       数据集D
-     * @param attributeName 特征名
+     * @param dataSet     数据集D
+     * @param featureName 特征名
      * @return 特征分支列表
      */
-    public static List<String> getAttributeValueList(List<List<String>> dataSet, String attributeName) {
-        List<String> attributeValueList = new ArrayList<>();
-        int attributeIndex = getAttributeIndex(dataSet.get(0), attributeName);
-        dataSet.stream().skip(1).filter(row -> !attributeValueList.contains(row.get(attributeIndex)))
-                .forEach(rowData -> attributeValueList.add(rowData.get(attributeIndex)));
-        return attributeValueList;
+    public static List<String> getFeatureValueList(List<List<String>> dataSet, String featureName) {
+        List<String> attributeList = new ArrayList<>();
+        int featureIndex = getFeatureIndex(dataSet.get(0), featureName);
+        dataSet.stream().skip(1).filter(row -> !attributeList.contains(row.get(featureIndex)))
+                .forEach(rowData -> attributeList.add(rowData.get(featureIndex)));
+        return attributeList;
     }
 
     /**
@@ -128,17 +128,17 @@ public class DecisionTreeUtils {
      * 针对每个用户（每行数据）过滤掉D中为attributeIndex列的特征和该特征值为attributeValue的，选择出这些用户在剩下的其他特征空间下的数据；
      *
      * @param dataSet        数据集D
-     * @param attributeValue 特征的某个值分支
-     * @param attributeIndex 该特征在D中的列索引
+     * @param attributeValue 特征的某个区间值
+     * @param featureIndex   该特征在D中的列索引
      * @return 未参与计算的特征和特征值的集合
      */
-    public static List<List<String>> splitAttributeDataList(List<List<String>> dataSet, String attributeValue, int attributeIndex) {
+    public static List<List<String>> splitAttributeDataList(List<List<String>> dataSet, String attributeValue, int featureIndex) {
         List<List<String>> notUsedFeatureOrValueList = new ArrayList<>();
         List<String> featureNames = dataSet.get(0);
-        notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(featureNames, attributeIndex));
+        notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(featureNames, featureIndex));
         // 遍历数据集中的每行训练数据，过滤已经计算的最优特征结点的值attributeValue，存储每行的未计算的特征值到集合
-        dataSet.stream().skip(1).filter(rd -> rd.get(attributeIndex).equals(attributeValue))
-                .forEach(rowData -> notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(rowData, attributeIndex)));
+        dataSet.stream().skip(1).filter(rd -> rd.get(featureIndex).equals(attributeValue))
+                .forEach(rowData -> notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(rowData, featureIndex)));
         return notUsedFeatureOrValueList;
     }
 
@@ -165,7 +165,13 @@ public class DecisionTreeUtils {
         if (node == null) {
             return;
         }
-        System.out.println(prefix + (node.getParentStatus() == null ? "" : node.getParentStatus() + "->") + node.getAttributeName());
+        String value;
+        if (node.isLeaf()) {
+            value = node.getLeafValue();
+        } else {
+            value = node.getNode();
+        }
+        System.out.println(prefix + (node.getDirectedEdgeValue() == null ? "" : node.getDirectedEdgeValue() + "->") + value);
 
         List<TreeNode> children = node.getChildNodes();
         if (children == null) {
@@ -177,14 +183,19 @@ public class DecisionTreeUtils {
         }
     }
 
+    /**
+     * 将决策树模型保存为xml文件
+     *
+     * @param treeNode  决策树模型
+     * @param modelFile 输出文件
+     */
     public static void saveTree2XML(TreeNode treeNode, String modelFile) {
         Document xml = DocumentHelper.createDocument();
         Element root = xml.addElement("root");
         Element nextNode = root.addElement("DecisionTree");
-        toXML(treeNode, nextNode);
-        System.out.println(xml.asXML());
-        OutputFormat format = OutputFormat.createPrettyPrint();
+        generateXML(treeNode, nextNode);
         try {
+            OutputFormat format = OutputFormat.createPrettyPrint();
             Writer fileWriter = new FileWriter(modelFile);
             XMLWriter output = new XMLWriter(fileWriter, format);
             output.write(xml);
@@ -194,24 +205,19 @@ public class DecisionTreeUtils {
         }
     }
 
-    private static void toXML(TreeNode treeNode, Element node) {
+    private static void generateXML(TreeNode treeNode, Element node) {
         if (null == treeNode.getChildNodes()) {
             return;
         }
-
         treeNode.getChildNodes().forEach(childNode -> {
-            Element nextNode = node.addElement(treeNode.getAttributeName());
-            System.out.println(treeNode.getAttributeName());
-            System.out.println("ps -> " + childNode.getParentStatus());
-            nextNode.addAttribute("value", childNode.getParentStatus());
+            Element nextNode = node.addElement(treeNode.getNode());
+
+            nextNode.addAttribute("value", childNode.getDirectedEdgeValue());
             if (childNode.isLeaf()) {
-                System.out.println("an = " + childNode.getAttributeName());
-                nextNode.setText(childNode.getAttributeName());
+                nextNode.setText(childNode.getLeafValue());
             }
-            toXML(childNode, nextNode);
+            generateXML(childNode, nextNode);
         });
-
-
     }
 
 

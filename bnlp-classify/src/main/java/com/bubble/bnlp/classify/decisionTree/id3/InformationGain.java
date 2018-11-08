@@ -68,28 +68,27 @@ public class InformationGain {
      * 计算当前状态下某一个属性的信息熵，即H(D|A)为在特征A给定的条件下D的经验条件熵。
      *
      * @param dataSet       数据集D
-     * @param attributeName 特征名
+     * @param featureName 特征名
      * @return 经验条件熵
      */
-    private static double conditionalEntropy(List<List<String>> dataSet, String attributeName) {
+    private static double conditionalEntropy(List<List<String>> dataSet, String featureName) {
         List<String> attributeNames = dataSet.get(0);
         int totalCount = dataSet.size() - 1; // 集合D中的样本总数
-        // 获得目标属性在原数据中所处的列索引
-        int attributeIndex = DecisionTreeUtils.getAttributeIndex(attributeNames, attributeName);
+        // 获得目标特征在原数据中所处的列索引
+        int featureIndex = DecisionTreeUtils.getFeatureIndex(attributeNames, featureName);
         // 获取某特征下各个特征值所对应的类值分布
-        Map<String, Map<String, Integer>> attributeCVMap = DecisionTreeUtils.getAttributeClassValueMap(dataSet, attributeIndex);
+        Map<String, Map<String, Integer>> attributeCVMap = DecisionTreeUtils.getAttributeClassValueMap(dataSet, featureIndex);
 
         // 计算在特征属性A的条件下样本的条件熵
         double conditionalEntropy = 0.0;
         for (String attribute : attributeCVMap.keySet()) {
-            // 当前特征下某个值的信息熵
+            // 当前特征下某区间值的信息熵
             double attributeEntropy = currentEmpiricalEntropy(attributeCVMap.get(attribute));
             // 计算当前特征下某区间值的条件概率
             double attributeProbability = currentAttributeProbability(attributeCVMap.get(attribute), totalCount);
             // 计算 H(D|A)的值
             conditionalEntropy += (attributeEntropy * attributeProbability);
         }
-
         return conditionalEntropy;
     }
 

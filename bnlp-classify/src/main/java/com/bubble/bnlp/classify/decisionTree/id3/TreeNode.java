@@ -10,26 +10,11 @@ import java.util.List;
  * date: 2018-11-08 09:17
  **/
 public class TreeNode {
-
-    private String attributeName;
-    private String parentStatus; // 父点的状态（表示的是从父节点过度到当前节点时的状态）
-
     private String node; // 结点，即特征
     private String directedEdgeValue; // 有向边的值，即特征值
+    private String leafValue; //叶结点的值，即类值
     private List<TreeNode> childNodes;
     private boolean isLeaf = false; // 是否是叶结点
-
-    public TreeNode(String attributeName) {
-        this.attributeName = attributeName;
-    }
-
-    public String getAttributeName() {
-        return attributeName;
-    }
-
-    public void setAttributeName(String attributeName) {
-        this.attributeName = attributeName;
-    }
 
     public List<TreeNode> getChildNodes() {
         return childNodes;
@@ -42,14 +27,6 @@ public class TreeNode {
         childNodes.add(node);
     }
 
-    public String getParentStatus() {
-        return parentStatus;
-    }
-
-    public void setParentStatus(String parentStatus) {
-        this.parentStatus = parentStatus;
-    }
-
     public boolean isLeaf() {
         return isLeaf;
     }
@@ -57,4 +34,29 @@ public class TreeNode {
     public void setLeaf(boolean leaf) {
         isLeaf = leaf;
     }
+
+    public String getNode() {
+        return node;
+    }
+
+    public void setNode(String node) {
+        this.node = node;
+    }
+
+    public String getDirectedEdgeValue() {
+        return directedEdgeValue;
+    }
+
+    public void setDirectedEdgeValue(String directedEdgeValue) {
+        this.directedEdgeValue = directedEdgeValue;
+    }
+
+    public String getLeafValue() {
+        return leafValue;
+    }
+
+    public void setLeafValue(String leafValue) {
+        this.leafValue = leafValue;
+    }
+
 }
