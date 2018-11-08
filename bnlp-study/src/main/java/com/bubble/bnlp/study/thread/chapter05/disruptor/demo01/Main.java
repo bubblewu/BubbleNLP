@@ -41,11 +41,11 @@ public class Main {
         // ByteBuffer.allocate方法创建并分配一个私有的空间来储存指定容量大小的数据元素。
         // ByteBuffer.allocate(8) 创建一个容量为8字节的ByteBuffer，如果发现创建的缓冲区容量太小，那么只能重新创建。
         ByteBuffer byteBuffer = ByteBuffer.allocate(8);
-        for (long i = 0; i < 10; i++) {
+        for (long i = 0; i < 20; i++) {
             byteBuffer.putLong(0, i);
             producer.pushData(byteBuffer);
             Thread.sleep(100);
-            System.out.println("add data: " + i);
+            System.out.println(Thread.currentThread().getName() + " add data: " + i);
         }
         System.out.println("job done.");
 

@@ -16,6 +16,7 @@ public class AsyThread {
         System.out.println("领导来分发今天的任务:");
         executor.doSomething();
         System.out.println("领导走了，小兵们正在加班加点ing");
+        executor.executor.shutdown();
     }
 
     private static class MyExecutor {

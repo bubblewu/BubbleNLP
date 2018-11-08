@@ -20,7 +20,9 @@ public class Consumer implements WorkHandler<PCData> {
     @Override
     public void onEvent(PCData pcData) throws Exception {
         long result = pcData.getValue() * pcData.getValue(); // 求整数的平方
-        System.out.println(Thread.currentThread().getName() + " " + Thread.currentThread().getId() + " Event: " + result);
+        System.out.println(Thread.currentThread().getName() + " " + Thread.currentThread().getId()
+                + "data: " + pcData.getValue()
+                + " Event: " + result);
     }
 
 }

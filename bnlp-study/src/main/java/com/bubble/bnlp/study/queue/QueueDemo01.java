@@ -43,7 +43,7 @@ public class QueueDemo01 {
                     queue.offer("element-" + (m++));
                 }
                 totalCount += len; // 生产的元素总数
-                System.out.println("当前运行的线程是：" + Thread.currentThread().getName() + "\t 第" + (i + 1)+ "次新加入元素数：" + len + "\t 队列中元素总数是："
+                System.out.println("当前运行的线程是：" + Thread.currentThread().getName() + "\t 第" + (i + 1) + "次新加入元素数：" + len + "\t 队列中元素总数是："
                         + queue.size());
 
                 try {
