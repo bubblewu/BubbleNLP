@@ -1,6 +1,5 @@
-# MachineLearningID3
-决策树之 ID3 算法（待续）
-
+# 决策树之ID3算法
+计算在给定天气条件下打球和不打球的概率
 ----------------------------------------------
 
 # 源数据
@@ -21,7 +20,7 @@
 |   13  |  Overcast       |  Hot            |  Normal      |  Weak    |  Yes           |
 |   14  |  Rainy          |  Mild           |  High        |  Strong  |  No            |
 
-# 决策树
+# 决策树生成结果
 ```text
 OutLook
     Sunny->Humidity
@@ -33,10 +32,9 @@ OutLook
         Strong->No
 ```
 
-# Ref
--   http://blog.csdn.net/acdreamers/article/details/44661149
--   http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html
-
+# 参考
+-   [算法杂货铺——分类算法之决策树(Decision tree)](http://www.cnblogs.com/leoo2sk/archive/2010/09/19/decision-tree.html)
+-   [决策树之 ID3 算法](http://blog.csdn.net/lemon_tree12138/article/details/51837983)
 -----------------------------------------
 
-本代码博客地址： [决策树之 ID3 算法](http://blog.csdn.net/lemon_tree12138/article/details/51837983)
+

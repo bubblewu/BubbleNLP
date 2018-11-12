@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree.id3;
+package com.bubble.bnlp.classify.decisionTree;
 
 import java.util.ArrayList;
 import java.util.List;

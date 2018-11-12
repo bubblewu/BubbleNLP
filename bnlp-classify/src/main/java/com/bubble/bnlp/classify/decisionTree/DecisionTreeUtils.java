@@ -1,7 +1,8 @@
 package com.bubble.bnlp.classify.decisionTree;
 
-import com.bubble.bnlp.classify.decisionTree.id3.TreeNode;
+import com.bubble.bnlp.common.ToolKits;
 import com.google.common.collect.Maps;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -16,10 +17,7 @@ import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -56,6 +54,18 @@ public class DecisionTreeUtils {
     }
 
     /**
+     * 获取数据集中的特征名称
+     * 数据集第一行特征的属性名,过滤列名和类名
+     *
+     * @param featureNameList 特征名称集合
+     * @return 所有的特征名集合
+     */
+    public static List<String> getFeatureNames(List<String> featureNameList) {
+        return featureNameList.stream().skip(1).limit(featureNameList.size() - 2)
+                .collect(Collectors.toList());
+    }
+
+    /**
      * 获得目标特征在原数据中所处的列索引
      *
      * @param featureNames 数据的所有特征属性
@@ -80,31 +90,31 @@ public class DecisionTreeUtils {
      * @param featureIndex 目标特征的列索引
      * @return eg: {Rainy={No=2, Yes=3}, Sunny={No=3, Yes=2}}
      */
-    public static Map<String, Map<String, Integer>> getAttributeClassValueMap(List<List<String>> dataSet, int featureIndex) {
-        Map<String, Map<String, Integer>> attributeCVMap = Maps.newHashMap();
+    public static Map<String, Map<String, Integer>> getAttributeClassifyMap(List<List<String>> dataSet, int featureIndex) {
+        Map<String, Map<String, Integer>> attributeClassifyMap = Maps.newHashMap();
         for (int rowIndex = 1; rowIndex < dataSet.size(); rowIndex++) {
             // 每行的特征值数据
             List<String> rowData = dataSet.get(rowIndex);
             // 获取当前特征的值
             String attributeValue = rowData.get(featureIndex);
             // 获取当前特征值对应的类值
-            String classValue = rowData.get(rowData.size() - 1);
+            String classify = rowData.get(rowData.size() - 1);
 
-            Map<String, Integer> cvMap;
-            if (attributeCVMap.containsKey(attributeValue)) {
-                cvMap = attributeCVMap.get(attributeValue);
-                if (cvMap.containsKey(classValue)) {
-                    cvMap.put(classValue, cvMap.get(classValue) + 1);
+            Map<String, Integer> classifyMap;
+            if (attributeClassifyMap.containsKey(attributeValue)) {
+                classifyMap = attributeClassifyMap.get(attributeValue);
+                if (classifyMap.containsKey(classify)) {
+                    classifyMap.put(classify, classifyMap.get(classify) + 1);
                 } else {
-                    cvMap.put(classValue, 1);
+                    classifyMap.put(classify, 1);
                 }
             } else {
-                cvMap = Maps.newHashMap();
-                cvMap.put(classValue, 1);
+                classifyMap = Maps.newHashMap();
+                classifyMap.put(classify, 1);
             }
-            attributeCVMap.put(attributeValue, cvMap);
+            attributeClassifyMap.put(attributeValue, classifyMap);
         }
-        return attributeCVMap;
+        return attributeClassifyMap;
     }
 
 
@@ -218,6 +228,191 @@ public class DecisionTreeUtils {
             }
             generateXML(childNode, nextNode);
         });
+    }
+
+
+    /**
+     * 将原始数据中的连续变量为离散变量
+     *
+     * @param trainingData 训练数据集合
+     */
+    public static void transformContinuouslyVariables(List<List<String>> trainingData) {
+        List<Integer> indexList = getContinuouslyVariableIndex(trainingData);
+        indexList.forEach(colIndex -> {
+            List<ContinuouslyVariable> continuouslyVariableList = extractContinuouslyVariable(trainingData, colIndex);
+            continuouslyVariableList.sort(Comparator.comparing(ContinuouslyVariable::getValue)); // 升序排列
+            int threshold = getAttributeSplitThreshold(continuouslyVariableList);
+            int thresholdAttribute = continuouslyVariableList.get(threshold).getValue();
+
+            transformContinuouslyVariablesByThreshold(trainingData, colIndex, thresholdAttribute);
+        });
+    }
+
+    /**
+     * 根据阈值修改原始数据的某特征列，将连续变量修改为离散变量
+     *
+     * @param trainingData       训练数据集
+     * @param colIndex           特征列索引
+     * @param thresholdAttribute 特征中用来进行属性值分割的阈值
+     */
+    private static void transformContinuouslyVariablesByThreshold(List<List<String>> trainingData, Integer colIndex, int thresholdAttribute) {
+        trainingData.stream().skip(1).forEach(rowData -> {
+            if (Integer.parseInt(rowData.get(colIndex)) <= thresholdAttribute) {
+                rowData.set(colIndex, "<=" + thresholdAttribute);
+            } else {
+                rowData.set(colIndex, ">" + thresholdAttribute);
+            }
+        });
+    }
+
+    /**
+     * 计算连续变量的分割阈值
+     *
+     * @param continuouslyVariableList 某列的连续变量集合
+     * @return 最佳分割阈值
+     */
+    private static int getAttributeSplitThreshold(List<ContinuouslyVariable> continuouslyVariableList) {
+        double maxInfoEntropy = 0.0; // 分割过程中的最大信息熵
+        int optimalSplitIndex = 0; // 最佳的分割位置
+        for (int index = 0; index < continuouslyVariableList.size() - 1; index++) {
+            // 计算每次分割的信息熵（信息量）
+            double infoEntropy = getInfoEntropyByThreshold(continuouslyVariableList, index);
+            if (maxInfoEntropy < infoEntropy) {
+                maxInfoEntropy = infoEntropy;
+                optimalSplitIndex = index;
+            }
+        }
+        return optimalSplitIndex;
+    }
+
+    /**
+     * 计算本次分割的信息熵
+     *
+     * @param continuouslyVariableList 某列的连续变量集合
+     * @param splitIndex               某列的连续变量集合的索引下标
+     * @return 信息熵
+     */
+    private static double getInfoEntropyByThreshold(List<ContinuouslyVariable> continuouslyVariableList, int splitIndex) {
+        // 获取该列连续变量值对应的类值
+        Set<String> classifySet = continuouslyVariableList.stream()
+                .filter(ToolKits.distinctByKey(ContinuouslyVariable::getClassify))
+                .collect(Collectors.toList()).stream().map(ContinuouslyVariable::getClassify).collect(Collectors.toSet());
+
+        // 利用某列的连续变量集合的下标，从左到右不断的移动分割集合为两个部分，分别获取类对应的出现数目
+        List<Integer> leftClassifyCountList = getContinuouslyVariableMap(continuouslyVariableList, 0, splitIndex, classifySet);
+        List<Integer> rightClassifyCountList = getContinuouslyVariableMap(continuouslyVariableList, splitIndex + 1, continuouslyVariableList.size() - 1, classifySet);
+
+        return infoEntropy(leftClassifyCountList, rightClassifyCountList);
+    }
+
+    /**
+     * 计算特征分割后值的信息熵
+     *
+     * @param leftClassifyCountList  被某一个阈值分隔后的左半部分结果分布数组
+     * @param rightClassifyCountList 被某一个阈值分隔后的右半部分结果分布数组
+     * @return 属性值的信息熵
+     */
+    private static double infoEntropy(List<Integer> leftClassifyCountList, List<Integer> rightClassifyCountList) {
+        double totalCount;
+        double leftCount = 0d;
+        double rightCount = 0d;
+
+        for (int count : leftClassifyCountList) {
+            if (0 == count) {
+                return 0d;
+            }
+            leftCount += count;
+        }
+
+        for (int count : rightClassifyCountList) {
+            if (0 == count) {
+                return 0d;
+            }
+            rightCount += count;
+        }
+        totalCount = leftCount + rightCount;
+
+        return (leftCount / totalCount) * infoEntropy(leftClassifyCountList) + (rightCount / totalCount) * infoEntropy(rightClassifyCountList);
+    }
+
+    /**
+     * N分类时，计算信息熵
+     *
+     * @param classifyCountList 被某一个阈值分割后的某部分结果分布数组
+     * @return 信息熵
+     */
+    private static double infoEntropy(List<Integer> classifyCountList) {
+        double entropy = 0d;
+        int totalCount = classifyCountList.stream().mapToInt(Integer::intValue).sum();
+        for (int count : classifyCountList) {
+            entropy += -1.0 * (1.0 * count / totalCount) * ToolKits.log2(1.0 * count / totalCount);
+        }
+        return entropy;
+//        将二分类结果计算
+//        int a = classifyCountList.get(0);
+//        int b = classifyCountList.get(1);
+//        int totalCount = a + b;
+//        return -1.0 * (1.0 * a / totalCount) * ToolKits.log2(1.0 * a / totalCount) - (1.0 * b / totalCount) * ToolKits.log2(1.0 * b / totalCount);
+    }
+
+    /**
+     * 统计值为连续变量的某列的类值的结果分布（出现次数）
+     *
+     * @param continuouslyVariableList 某列的连续变量集合
+     * @param startIndex               开始索引
+     * @param endIndex                 结束索引
+     * @param classifySet              某列中连续变量值对应的类值
+     * @return 类值的出现次数
+     */
+    private static List<Integer> getContinuouslyVariableMap(List<ContinuouslyVariable> continuouslyVariableList, int startIndex, int endIndex, Set<String> classifySet) {
+        // 统计值为连续变量的某列的类值的结果分布（出现次数）
+        Map<String, Integer> classifyCountMap = Maps.newHashMap();
+        classifySet.forEach(classify -> classifyCountMap.put(classify, 0));
+
+        for (int index = startIndex; index <= endIndex; index++) {
+            String classify = continuouslyVariableList.get(index).getClassify();
+            if (classifyCountMap.containsKey(classify)) {
+                classifyCountMap.put(classify, classifyCountMap.get(classify) + 1);
+            } else {
+                classifyCountMap.put(classify, 1);
+            }
+        }
+        return classifyCountMap.keySet().stream().map(classifyCountMap::get).collect(Collectors.toList());
+    }
+
+
+    /**
+     * 获取训练集中的某列的全部的连续变量值
+     *
+     * @param trainingData 训练集数据D
+     * @param colIndex     连续变量的列索引
+     * @return 某列的全部的连续变量值集合
+     */
+    private static List<ContinuouslyVariable> extractContinuouslyVariable(List<List<String>> trainingData, int colIndex) {
+        return trainingData.stream().skip(1).map(rowData -> {
+            ContinuouslyVariable cv = new ContinuouslyVariable();
+            cv.setValue(Integer.parseInt(rowData.get(colIndex)));
+            int lastRowIndex = rowData.size() - 1;
+            cv.setClassify(rowData.get(lastRowIndex));
+            return cv;
+        }).collect(Collectors.toList());
+    }
+
+    /**
+     * 获得训练集中特征属性值为连续变量的列索引（特征索引）
+     *
+     * @param trainingData 训练数据集合
+     * @return 连续变量的列索引
+     */
+    private static List<Integer> getContinuouslyVariableIndex(List<List<String>> trainingData) {
+        List<Integer> indexList = new ArrayList<>();
+        List<String> lastRowData = trainingData.get(trainingData.size() - 1);
+        for (int index = 1; index < lastRowData.size() - 1; index++) {
+            if (NumberUtils.isDigits(lastRowData.get(index))) {
+                indexList.add(index);
+            }
+        }
+        return indexList;
     }
 
 

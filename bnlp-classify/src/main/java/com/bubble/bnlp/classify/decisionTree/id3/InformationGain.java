@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 信息增益
@@ -35,13 +34,13 @@ public class InformationGain {
             throw new DecisionTreeException("data set is null, get feature name error.");
         }
         List<String> featureNameList = dataSet.get(0);
-        List<String> featureNames = getFeatureNames(featureNameList);
+        featureNameList = DecisionTreeUtils.getFeatureNames(featureNameList);
 
         Map<String, Double> maxIGMap = Maps.newHashMap();
         double maxIG = -1;
         String maxIGFeatureName = "";
         // 计算每个特征的信息增益, 选择IG最大的特征
-        for (String featureName : featureNames) {
+        for (String featureName : featureNameList) {
             double currentIG = currentFeatureInformationGain(dataSet, featureName);
             LOGGER.info("current information gain value: {}", currentIG);
             if (maxIG < currentIG) {
@@ -60,7 +59,7 @@ public class InformationGain {
      * @param featureName 当前特征名
      * @return 信息增益值
      */
-    private static double currentFeatureInformationGain(List<List<String>> dataSet, String featureName) {
+    public static double currentFeatureInformationGain(List<List<String>> dataSet, String featureName) {
         return empiricalEntropy(dataSet) - conditionalEntropy(dataSet, featureName);
     }
 
@@ -77,15 +76,15 @@ public class InformationGain {
         // 获得目标特征在原数据中所处的列索引
         int featureIndex = DecisionTreeUtils.getFeatureIndex(attributeNames, featureName);
         // 获取某特征下各个特征值所对应的类值分布
-        Map<String, Map<String, Integer>> attributeCVMap = DecisionTreeUtils.getAttributeClassValueMap(dataSet, featureIndex);
+        Map<String, Map<String, Integer>> attributeClassifyMap = DecisionTreeUtils.getAttributeClassifyMap(dataSet, featureIndex);
 
         // 计算在特征属性A的条件下样本的条件熵
         double conditionalEntropy = 0.0;
-        for (String attribute : attributeCVMap.keySet()) {
+        for (String attribute : attributeClassifyMap.keySet()) {
             // 当前特征下某区间值的信息熵
-            double attributeEntropy = currentEmpiricalEntropy(attributeCVMap.get(attribute));
+            double attributeEntropy = currentEmpiricalEntropy(attributeClassifyMap.get(attribute));
             // 计算当前特征下某区间值的条件概率
-            double attributeProbability = currentAttributeProbability(attributeCVMap.get(attribute), totalCount);
+            double attributeProbability = currentAttributeProbability(attributeClassifyMap.get(attribute), totalCount);
             // 计算 H(D|A)的值
             conditionalEntropy += (attributeEntropy * attributeProbability);
         }
@@ -95,14 +94,14 @@ public class InformationGain {
     /**
      * 计算当前特征下某区间值的条件概率
      *
-     * @param classValueMap A特征下某值所对应的类值分布
+     * @param classifyMap A特征下某值所对应的类值分布
      * @param totalCount    集合D中的样本总数
      * @return 条件概率
      */
-    private static double currentAttributeProbability(Map<String, Integer> classValueMap, int totalCount) {
+    public static double currentAttributeProbability(Map<String, Integer> classifyMap, int totalCount) {
         int totalCVCount = 0; // 特征A中某区间的样本个数，即某区间对应类值的个数
-        for (String cv : classValueMap.keySet()) {
-            totalCVCount += classValueMap.get(cv);
+        for (String classify : classifyMap.keySet()) {
+            totalCVCount += classifyMap.get(classify);
         }
         return 1.0 * totalCVCount / totalCount;
     }
@@ -110,19 +109,19 @@ public class InformationGain {
     /**
      * 计算A特征下某区间值的经验熵（信息熵）
      *
-     * @param classValueMap A特征下某值所对应的类值分布
+     * @param classifyMap A特征下某值所对应的类值分布
      * @return A特征下某区间值的经验熵 H(Di)
      */
-    private static double currentEmpiricalEntropy(Map<String, Integer> classValueMap) {
-        Set<String> cvSet = classValueMap.keySet();
-        int totalCVCount = 0; // 特征A中某区间的样本个数，即某区间对应类值的个数
-        for (String cv : cvSet) {
-            totalCVCount += classValueMap.get(cv);
+    public static double currentEmpiricalEntropy(Map<String, Integer> classifyMap) {
+        Set<String> cvSet = classifyMap.keySet();
+        int totalClassifyCount = 0; // 特征A中某区间的样本个数，即某区间对应类值的个数
+        for (String classify : cvSet) {
+            totalClassifyCount += classifyMap.get(classify);
         }
 
         double entropy = 0.0;
-        for (String cv : cvSet) {
-            double probability = 1.0 * classValueMap.get(cv) / totalCVCount;
+        for (String classify : cvSet) {
+            double probability = 1.0 * classifyMap.get(classify) / totalClassifyCount;
             entropy -= probability * log2(probability);
         }
         return entropy;
@@ -173,18 +172,6 @@ public class InformationGain {
             }
         });
         return classResultDistributionMap;
-    }
-
-    /**
-     * 获取数据集中的特征名称
-     * 数据集第一行特征的属性名,过滤列名和类名
-     *
-     * @param featureNameList 特征名称集合
-     * @return 所有的特征名集合
-     */
-    private static List<String> getFeatureNames(List<String> featureNameList) {
-        return featureNameList.stream().skip(1).limit(featureNameList.size() - 2)
-                .collect(Collectors.toList());
     }
 
 }

@@ -1,6 +1,7 @@
 package com.bubble.bnlp.classify.decisionTree.id3;
 
 import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisionTree.TreeNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +41,7 @@ public class ID3Model {
      * @param dataSet  数据集
      * @param treeNode 特征结点
      */
-    private void genTreeNode(List<List<String>> dataSet, TreeNode treeNode) {
+    public void genTreeNode(List<List<String>> dataSet, TreeNode treeNode) {
         // 获取某特征下的所有特征值
         List<String> attributeList = DecisionTreeUtils.getFeatureValueList(dataSet, treeNode.getNode());
         // 获得特征在原数据中所处的列索引
@@ -69,8 +70,8 @@ public class ID3Model {
         if (maxIG == 0.0) {
             List<String> singleLineData = splitFeatureAttributeList.get(splitFeatureAttributeList.size() - 1);
             TreeNode leafNode = new TreeNode();
-            String classValue = singleLineData.get(singleLineData.size() - 1);
-            leafNode.setLeafValue(classValue);
+            String classify = singleLineData.get(singleLineData.size() - 1);
+            leafNode.setLeafValue(classify);
             leafNode.setLeaf(true);
             leafNode.setDirectedEdgeValue(attributeValue);
             treeNode.addChildNodes(leafNode);
