@@ -1,6 +1,7 @@
 package com.bubble.bnlp.classify.decisionTree;
 
 import com.bubble.bnlp.common.ToolKits;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.dom4j.Document;
@@ -240,9 +241,9 @@ public class DecisionTreeUtils {
         List<Integer> indexList = getContinuouslyVariableIndex(trainingData);
         indexList.forEach(colIndex -> {
             List<ContinuouslyVariable> continuouslyVariableList = extractContinuouslyVariable(trainingData, colIndex);
-            continuouslyVariableList.sort(Comparator.comparing(ContinuouslyVariable::getValue)); // 升序排列
+            continuouslyVariableList.sort(Comparator.comparing(ContinuouslyVariable::getAttribute)); // 升序排列
             int threshold = getAttributeSplitThreshold(continuouslyVariableList);
-            int thresholdAttribute = continuouslyVariableList.get(threshold).getValue();
+            int thresholdAttribute = continuouslyVariableList.get(threshold).getAttribute();
 
             transformContinuouslyVariablesByThreshold(trainingData, colIndex, thresholdAttribute);
         });
@@ -348,11 +349,6 @@ public class DecisionTreeUtils {
             entropy += -1.0 * (1.0 * count / totalCount) * ToolKits.log2(1.0 * count / totalCount);
         }
         return entropy;
-//        将二分类结果计算
-//        int a = classifyCountList.get(0);
-//        int b = classifyCountList.get(1);
-//        int totalCount = a + b;
-//        return -1.0 * (1.0 * a / totalCount) * ToolKits.log2(1.0 * a / totalCount) - (1.0 * b / totalCount) * ToolKits.log2(1.0 * b / totalCount);
     }
 
     /**
@@ -391,12 +387,34 @@ public class DecisionTreeUtils {
     private static List<ContinuouslyVariable> extractContinuouslyVariable(List<List<String>> trainingData, int colIndex) {
         return trainingData.stream().skip(1).map(rowData -> {
             ContinuouslyVariable cv = new ContinuouslyVariable();
-            cv.setValue(Integer.parseInt(rowData.get(colIndex)));
+            cv.setAttribute(Integer.parseInt(rowData.get(colIndex)));
             int lastRowIndex = rowData.size() - 1;
             cv.setClassify(rowData.get(lastRowIndex));
             return cv;
         }).collect(Collectors.toList());
     }
+
+    /**
+     * 获取训练集中的某列的全部的连续变量值
+     *
+     * @param attributeClassifyMap 某特征的各属性对应的类值分布
+     * @return 某特征下的"属性 - 类值"元组集合
+     */
+    public static List<ContinuouslyVariable> extractContinuouslyVariable(Map<String, Map<String, Integer>> attributeClassifyMap) {
+        List<ContinuouslyVariable> continuouslyVariableList = new ArrayList<>();
+        attributeClassifyMap.forEach((attribute, classifyCountMap) -> {
+            classifyCountMap.forEach((classify, count) -> {
+                ContinuouslyVariable cv = new ContinuouslyVariable();
+                cv.setAttribute(Integer.parseInt(attribute));
+                cv.setClassify(classify);
+                continuouslyVariableList.add(cv);
+            });
+        });
+        // 升序排序
+        continuouslyVariableList.sort(Comparator.comparing(ContinuouslyVariable::getAttribute));
+        return continuouslyVariableList;
+    }
+
 
     /**
      * 获得训练集中特征属性值为连续变量的列索引（特征索引）
@@ -405,7 +423,7 @@ public class DecisionTreeUtils {
      * @return 连续变量的列索引
      */
     private static List<Integer> getContinuouslyVariableIndex(List<List<String>> trainingData) {
-        List<Integer> indexList = new ArrayList<>();
+        List<Integer> indexList = Lists.newArrayList();
         List<String> lastRowData = trainingData.get(trainingData.size() - 1);
         for (int index = 1; index < lastRowData.size() - 1; index++) {
             if (NumberUtils.isDigits(lastRowData.get(index))) {
@@ -415,5 +433,83 @@ public class DecisionTreeUtils {
         return indexList;
     }
 
+    /**
+     * 计算连续变量的分割阈值
+     *
+     * @param continuouslyVariableList 某特征下的"属性 - 类值"元组集合
+     * @return "属性 - 最小基尼值"
+     */
+    public static Map<String, Double> getAttributeThreshold(List<ContinuouslyVariable> continuouslyVariableList) {
+        double minGiNi = Double.MAX_VALUE;
+        int minGiNiIndex = 0;
+        Map<String, Double> attributeMinGiNiMap = Maps.newHashMap();
+        for (int index = 0; index < continuouslyVariableList.size() - 1; index++) {
+            double gini = getGINIByThreshold(continuouslyVariableList, index);
+            if (minGiNi > gini) {
+                minGiNi = gini;
+                minGiNiIndex = index;
+            }
+        }
+        attributeMinGiNiMap.put(String.valueOf(continuouslyVariableList.get(minGiNiIndex).getAttribute()), minGiNi);
+        return attributeMinGiNiMap;
+    }
+
+    /**
+     * 计算本次分割的基尼值
+     *
+     * @param continuouslyVariableList 某特征下的"属性 - 类值"元组集合
+     * @param splitIndex               某列的连续变量集合的索引下标
+     * @return 基尼值
+     */
+    private static double getGINIByThreshold(List<ContinuouslyVariable> continuouslyVariableList, int splitIndex) {
+        // 获取该列连续变量值对应的类值
+        Set<String> classifySet = continuouslyVariableList.stream()
+                .filter(ToolKits.distinctByKey(ContinuouslyVariable::getClassify))
+                .collect(Collectors.toList()).stream().map(ContinuouslyVariable::getClassify).collect(Collectors.toSet());
+        // 利用某列的连续变量集合的下标，从左到右不断的移动分割集合为两个部分，分别获取类对应的出现数目
+        List<Integer> leftClassifyCountList = getContinuouslyVariableMap(continuouslyVariableList, 0, splitIndex, classifySet);
+        List<Integer> rightClassifyCountList = getContinuouslyVariableMap(continuouslyVariableList, splitIndex + 1, continuouslyVariableList.size() - 1, classifySet);
+        return infoGiNi(leftClassifyCountList, rightClassifyCountList);
+    }
+
+    /**
+     * 计算特征分割后值的基尼值
+     *
+     * @param leftClassifyCountList  被某一个阈值分隔后的左半部分结果分布数组
+     * @param rightClassifyCountList 被某一个阈值分隔后的右半部分结果分布数组
+     * @return 属性值的基尼值
+     */
+    private static double infoGiNi(List<Integer> leftClassifyCountList, List<Integer> rightClassifyCountList) {
+        double totalCount;
+        double leftCount = 0d;
+        double rightCount = 0d;
+
+        for (int count : leftClassifyCountList) {
+            leftCount += count;
+        }
+
+        for (int count : rightClassifyCountList) {
+            rightCount += count;
+        }
+        totalCount = leftCount + rightCount;
+
+        return (leftCount / totalCount) * gini(leftClassifyCountList) + (rightCount / totalCount) * gini(rightClassifyCountList);
+
+    }
+
+    /**
+     * 计算被阈值分割后的某部分的基尼值
+     *
+     * @param classifyCountList 结果分布数组
+     * @return 基尼指数
+     */
+    private static double gini(List<Integer> classifyCountList) {
+        double pSum = 0d;
+        int totalCount = classifyCountList.stream().mapToInt(Integer::intValue).sum();
+        for (int count : classifyCountList) {
+            pSum += Math.pow((1.0 * count / totalCount), 2);
+        }
+        return 1 - pSum;
+    }
 
 }

@@ -10,15 +10,15 @@ import java.util.Objects;
  **/
 public class ContinuouslyVariable {
 
-    private int value;
-    private String classify;
+    private int attribute; //属性
+    private String classify; // 类值
 
-    public int getValue() {
-        return value;
+    public int getAttribute() {
+        return attribute;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setAttribute(int attribute) {
+        this.attribute = attribute;
     }
 
     public String getClassify() {
@@ -31,7 +31,7 @@ public class ContinuouslyVariable {
 
     @Override
     public String toString() {
-        return "[" + value + ", " + classify + "]";
+        return "[" + attribute + ", " + classify + "]";
     }
 
     @Override
@@ -39,12 +39,12 @@ public class ContinuouslyVariable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContinuouslyVariable that = (ContinuouslyVariable) o;
-        return value == that.value &&
+        return attribute == that.attribute &&
                 Objects.equals(classify, that.classify);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, classify);
+        return Objects.hash(attribute, classify);
     }
 }

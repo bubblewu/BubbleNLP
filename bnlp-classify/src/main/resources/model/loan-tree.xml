@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <DecisionTree>
+    <婚姻状况 value="Negative">
+      <有房者 value="是">否</有房者>
+      <有房者 value="Negative">
+        <年收入 value="70">否</年收入>
+        <年收入 value="Negative">是</年收入>
+      </有房者>
+    </婚姻状况>
+    <婚姻状况 value="已婚">否</婚姻状况>
+  </DecisionTree>
+</root>

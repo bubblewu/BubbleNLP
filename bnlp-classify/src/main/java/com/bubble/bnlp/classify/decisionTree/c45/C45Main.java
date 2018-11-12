@@ -17,6 +17,7 @@ public class C45Main {
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);
         TreeNode treeNode = C45Model.createDecisionTree(dataSet);
         DecisionTreeUtils.showDecisionTree(treeNode, "");
+        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/PlayTennis-tree.xml");
     }
 
 }

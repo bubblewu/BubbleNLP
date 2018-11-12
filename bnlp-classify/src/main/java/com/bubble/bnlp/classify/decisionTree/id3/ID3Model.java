@@ -84,25 +84,7 @@ public class ID3Model {
         childNode.setDirectedEdgeValue(attributeValue);
         treeNode.addChildNodes(childNode);
 
-        setAttributeNodeStatus(splitFeatureAttributeList, childNode);
-    }
-
-    /**
-     * 设置特征属性结点的分支及子结点
-     *
-     * @param currentData 当前数据集
-     * @param node        特征结点
-     */
-    private void setAttributeNodeStatus(List<List<String>> currentData, TreeNode node) {
-        // 获取某特征下的所有特征值
-        List<String> attributeList = DecisionTreeUtils.getFeatureValueList(currentData, node.getNode());
-        int featureIndex = DecisionTreeUtils.getFeatureIndex(currentData.get(0), node.getNode());
-
-        attributeList.forEach(attribute -> {
-            // 切分数据集D中的数据
-            List<List<String>> splitAttributeDataList = DecisionTreeUtils.splitAttributeDataList(currentData, attribute, featureIndex);
-            buildDecisionTree(attribute, splitAttributeDataList, node);
-        });
+        genTreeNode(splitFeatureAttributeList, childNode);
     }
 
 
