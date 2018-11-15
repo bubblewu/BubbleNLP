@@ -98,6 +98,14 @@ public class DecisionTreeUtils {
             List<String> rowData = dataSet.get(rowIndex);
             // 获取当前特征的值
             String attributeValue = rowData.get(featureIndex);
+//            try {
+//                attributeValue = rowData.get(featureIndex);
+//            } catch (Exception e) {
+//                attributeValue = "";
+//                System.out.println(rowData.size());
+//                System.out.println(featureIndex);
+//            }
+
             // 获取当前特征值对应的类值
             String classify = rowData.get(rowData.size() - 1);
 

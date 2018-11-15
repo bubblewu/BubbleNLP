@@ -1,0 +1,2 @@
+id locations airCompanies airline bct fn positions classify
+1 DYG AC PEK-LIS -1 JD460 -1 5be00bde4f3d78d1f740c7f9

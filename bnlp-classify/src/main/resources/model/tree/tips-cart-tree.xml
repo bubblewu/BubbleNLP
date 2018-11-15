@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <DecisionTree>
+    <airCompanies value="AC">
+      <locations value="Negative">
+        <airline value="PEK-LIS">
+          <bct value="COMMON">
+            <positions value="Negative">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+            <positions value="5b8cd85db0801876ef7ec63b">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+          </bct>
+        </airline>
+      </locations>
+      <locations value="CAN">
+        <airline value="PEK-LIS">
+          <bct value="COMMON">
+            <positions value="Negative">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+            <positions value="5ba468db4f3d78d1f73cb835">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+          </bct>
+        </airline>
+      </locations>
+    </airCompanies>
+    <airCompanies value="Negative">
+      <locations value="Negative">
+        <airline value="PEK-LIS">
+          <bct value="COMMON">
+            <positions value="Negative">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+            <positions value="5bc45689b080186c8623e564">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+          </bct>
+        </airline>
+      </locations>
+      <locations value="CNX">
+        <airline value="PEK-LIS">
+          <bct value="COMMON">
+            <positions value="Negative">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+            <positions value="5b83bf144f3d78d1f73c368b">
+              <fn value="Negative">Negative</fn>
+              <fn value="JD459">Negative</fn>
+            </positions>
+          </bct>
+        </airline>
+      </locations>
+    </airCompanies>
+  </DecisionTree>
+</root>

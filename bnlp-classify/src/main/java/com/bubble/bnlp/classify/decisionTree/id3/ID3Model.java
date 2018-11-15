@@ -2,9 +2,16 @@ package com.bubble.bnlp.classify.decisionTree.id3;
 
 import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
 import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.google.common.collect.Lists;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +24,55 @@ import java.util.Map;
  **/
 public class ID3Model {
     private static final Logger LOGGER = LoggerFactory.getLogger(ID3Model.class);
+
+    public List<String> predicate(Map<String, String> dataMap, String model) {
+        List<String> classifyList = Lists.newArrayList();
+        try {
+            SAXReader reader = new SAXReader();
+            Document document = reader.read(new File(model));
+            Element root = document.getRootElement();
+            Element tree = root.element("DecisionTree");
+            test(tree, dataMap, classifyList);
+
+        } catch (DocumentException e) {
+            LOGGER.error("read model file error.", e);
+        }
+
+        return classifyList;
+    }
+
+    private boolean stop = false;
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
+    }
+
+    private List<String> test(Element tree, Map<String, String> dataMap, List<String> classifyList) {
+        for (Iterator it = tree.elementIterator(); it.hasNext();) {
+            if (isStop()) {
+                break;
+            }
+            Element element = (Element) it.next();
+
+            String feature = element.getName();
+            String attribute = element.attribute("value").getValue();
+            String classify = element.getTextTrim();
+            if (dataMap.get(feature).equals(attribute)) {
+                if (classify.isEmpty()) {
+                    test(element, dataMap, classifyList);
+                } else {
+                    setStop(true);
+                    classifyList.add(classify);
+                    break;
+                }
+            }
+        }
+        return classifyList;
+    }
 
     /**
      * 构造ID3决策树

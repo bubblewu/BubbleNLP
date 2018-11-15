@@ -12,12 +12,14 @@ import java.util.List;
 public class C45Main {
 
     public static void main(String[] args) {
-        String file = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/c45/PlayTennis.txt";
+        String basePath = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/training/tree/";
+        String fileName = "tips";
+        String file = basePath + fileName + ".txt";
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(file);
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);
         TreeNode treeNode = C45Model.createDecisionTree(dataSet);
         DecisionTreeUtils.showDecisionTree(treeNode, "");
-        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/PlayTennis-tree.xml");
+        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/tree/" + fileName + "-c45-tree.xml");
     }
 
 }

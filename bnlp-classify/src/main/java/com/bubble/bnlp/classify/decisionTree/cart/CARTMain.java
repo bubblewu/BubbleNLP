@@ -12,13 +12,13 @@ import java.util.List;
 public class CARTMain {
 
     public static void main(String[] args) {
-        String basePath = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisionTree/cart/";
-        String fileName = "vari";
+        String basePath = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/training/tree/cart/";
+        String fileName = "tips";
         String file = basePath + fileName + ".txt";
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(file);
         TreeNode treeNode = CARTModel.createDecisionTree(dataSet);
         DecisionTreeUtils.showDecisionTree(treeNode, "");
-        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/" + fileName + "-tree.xml");
+        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/tree/" + fileName + "-cart-tree.xml");
     }
 
 }
