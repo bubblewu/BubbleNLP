@@ -13,7 +13,7 @@ public class C45Main {
 
     public static void main(String[] args) {
         String basePath = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/training/tree/";
-        String fileName = "tips";
+        String fileName = "loan";
         String file = basePath + fileName + ".txt";
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(file);
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);

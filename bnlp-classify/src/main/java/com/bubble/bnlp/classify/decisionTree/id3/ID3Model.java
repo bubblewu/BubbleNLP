@@ -32,7 +32,7 @@ public class ID3Model {
             Document document = reader.read(new File(model));
             Element root = document.getRootElement();
             Element tree = root.element("DecisionTree");
-            test(tree, dataMap, classifyList);
+            predicate(tree, dataMap, classifyList);
 
         } catch (DocumentException e) {
             LOGGER.error("read model file error.", e);
@@ -51,7 +51,7 @@ public class ID3Model {
         this.stop = stop;
     }
 
-    private List<String> test(Element tree, Map<String, String> dataMap, List<String> classifyList) {
+    private List<String> predicate(Element tree, Map<String, String> dataMap, List<String> classifyList) {
         for (Iterator it = tree.elementIterator(); it.hasNext();) {
             if (isStop()) {
                 break;
@@ -63,7 +63,7 @@ public class ID3Model {
             String classify = element.getTextTrim();
             if (dataMap.get(feature).equals(attribute)) {
                 if (classify.isEmpty()) {
-                    test(element, dataMap, classifyList);
+                    predicate(element, dataMap, classifyList);
                 } else {
                     setStop(true);
                     classifyList.add(classify);

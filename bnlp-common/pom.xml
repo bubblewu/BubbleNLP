@@ -22,6 +22,7 @@
         <okhttp.version>3.11.0</okhttp.version>
         <jsoup.version>1.11.3</jsoup.version>
         <dom4j.version>1.6.1</dom4j.version>
+        <fastjson.version>1.2.52</fastjson.version>
 
     </properties>
 
@@ -108,6 +109,11 @@
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>${dom4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
 

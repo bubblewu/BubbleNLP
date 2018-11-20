@@ -1,6 +1,12 @@
 package com.bubble.bnlp.common;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -12,6 +18,27 @@ import java.util.function.Predicate;
  * date: 2018-11-09 22:45
  **/
 public class ToolKits {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ToolKits.class);
+
+    /**
+     * 加载resources目录下的config.properties配置文件
+     *
+     * @return 配置数据
+     */
+    public static Properties getProperties() {
+        return getProperties("config.properties");
+    }
+
+    public static Properties getProperties(String fileName) {
+        Properties properties = new Properties();
+        try {
+            InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+            properties.load(inputStream);
+        } catch (IOException e) {
+            LOGGER.error("加载配置文件[{}] error.", fileName);
+        }
+        return properties;
+    }
 
     /**
      * 计算以 2 为底的对数

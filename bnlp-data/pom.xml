@@ -16,6 +16,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mongo.version>1.10.0</mongo.version>
+        <mongo-java.version>3.9.0</mongo-java.version>
     </properties>
 
     <dependencies>
@@ -39,6 +40,11 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-reactivestreams</artifactId>
             <version>${mongo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo-java.version}</version>
         </dependency>
 
     </dependencies>

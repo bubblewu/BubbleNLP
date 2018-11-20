@@ -1,6 +1,9 @@
 package com.bubble.bnlp.common.http;
 
-import okhttp3.*;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +26,6 @@ public class OKHttpUtil {
      * @return 请求结果
      */
     public static String doPost(String url, String paramBody) {
-        OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType, paramBody);
         Request request = new Request.Builder()
@@ -33,7 +35,7 @@ public class OKHttpUtil {
                 .addHeader("Cache-Control", "no-cache")
                 .build();
         try {
-            Response response = client.newCall(request).execute();
+            Response response = OkHttpSingleton.getInstance().getOkHttpClient().newCall(request).execute();
             if (response.code() == 200) {
                 if (response.body() != null) {
                     return response.body().string();
@@ -54,14 +56,13 @@ public class OKHttpUtil {
      * @return 结果数据
      */
     public static String doGet(String url) {
-        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
                 .get()
                 .addHeader("Cache-Control", "no-cache")
                 .build();
         try {
-            Response response = client.newCall(request).execute();
+            Response response = OkHttpSingleton.getInstance().getOkHttpClient().newCall(request).execute();
             if (response.code() == 200) {
                 if (response.body() != null) {
                     return response.body().string();
