@@ -114,7 +114,7 @@ public class MongoSingleton {
         return mongoClient;
     }
 
-    public void setMongoClient(MongoClient mongoClient) {
+    private void setMongoClient(MongoClient mongoClient) {
         this.mongoClient = mongoClient;
     }
 
@@ -122,8 +122,12 @@ public class MongoSingleton {
         return mongoDatabase;
     }
 
-    public void setMongoDatabase(MongoDatabase mongoDatabase) {
+    private void setMongoDatabase(MongoDatabase mongoDatabase) {
         this.mongoDatabase = mongoDatabase;
+    }
+
+    public MongoDatabase addMongoDatabase(String databaseName) {
+        return getMongoClient().getDatabase(databaseName);
     }
 
     public void close() {
