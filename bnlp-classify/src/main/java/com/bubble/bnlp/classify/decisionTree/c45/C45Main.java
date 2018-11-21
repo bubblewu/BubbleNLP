@@ -1,25 +1,57 @@
 package com.bubble.bnlp.classify.decisionTree.c45;
 
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisionTree.TreePredicate;
+import com.google.common.collect.Maps;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wugang
  * date: 2018-11-09 10:14
  **/
 public class C45Main {
+    private static final String DATA_BASE_PATH = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/data/";
+    private static final String MODEL_BASE_PATH = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/";
 
     public static void main(String[] args) {
-        String basePath = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/training/tree/";
-        String fileName = "loan";
-        String file = basePath + fileName + ".txt";
-        List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(file);
-        DecisionTreeUtils.transformContinuouslyVariables(dataSet);
-        TreeNode treeNode = C45Model.createDecisionTree(dataSet);
-        DecisionTreeUtils.showDecisionTree(treeNode, "");
-        DecisionTreeUtils.saveTree2XML(treeNode, "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/tree/" + fileName + "-c45-tree.xml");
+        String fileName = "tips";
+        String inputFile = DATA_BASE_PATH + "training/tree/" + fileName + ".txt";
+        String outputFile = MODEL_BASE_PATH + "tree/" + fileName + "-c45-tree.xml";
+
+        C45Model.train(inputFile, outputFile);
+        predicateTips(outputFile);
+//        predicatePlayTennis(outputFile);
+    }
+
+    private static void predicateTips(String modelFile) {
+        Map<String, String> tipMap = Maps.newHashMap();
+//        locations airCompanies airline bct fn positions
+        tipMap.put("locations", "NYC");
+        tipMap.put("airCompanies", "AC");
+        tipMap.put("airline", "-1");
+        tipMap.put("bct", "-1");
+        tipMap.put("fn", "JD460");
+        tipMap.put("positions", "-1");
+        TreePredicate treePredicate = new TreePredicate();
+        List<String> items = treePredicate.predicate(tipMap, modelFile);
+        String commonFile = DATA_BASE_PATH + "common/tree/common-tips.txt";
+        System.out.println("predicate classify: ");
+        items.forEach(System.out::println);
+        System.out.println("common classify: ");
+        treePredicate.loadCommonClassify(commonFile).forEach(System.out::println);
+    }
+
+    private static void predicatePlayTennis(String modelFile) {
+        Map<String, String> dataMap = Maps.newHashMap();
+//        dataMap.put("Day", "1");
+        dataMap.put("OutLook", "Sunny");
+        dataMap.put("Temperature", "60");
+        dataMap.put("Humidity", "90");
+        dataMap.put("Wind", "YES");
+        TreePredicate treePredicate = new TreePredicate();
+        List<String> items = treePredicate.predicate(dataMap, modelFile);
+        items.forEach(System.out::println);
     }
 
 }

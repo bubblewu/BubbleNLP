@@ -20,6 +20,14 @@ public class TreeNode {
         return childNodes;
     }
 
+    public void setChildNodes(List<TreeNode> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    public void addChildNodes(List<TreeNode> childNodes) {
+        this.childNodes.addAll(childNodes);
+    }
+
     public void addChildNodes(TreeNode node) {
         if (childNodes == null) {
             childNodes = new ArrayList<>();
@@ -59,4 +67,9 @@ public class TreeNode {
         this.leafValue = leafValue;
     }
 
+    public void clearChildNodes() {
+        if (null != getChildNodes()) {
+            getChildNodes().clear();
+        }
+    }
 }

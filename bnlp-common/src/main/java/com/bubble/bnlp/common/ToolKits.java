@@ -5,8 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -55,6 +54,28 @@ public class ToolKits {
     public static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
         Map<Object, Boolean> map = new ConcurrentHashMap<>();
         return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
+
+    private static final String SPLIT = ",";
+
+    public static String append(String... datas) {
+        StringBuilder sb = new StringBuilder();
+        Arrays.stream(datas).filter(Objects::nonNull).forEach(data -> sb.append(data).append(SPLIT));
+        if (sb.toString().trim().length() > 0) {
+            int index = sb.lastIndexOf(SPLIT);
+            return sb.substring(0, index);
+        }
+        return sb.toString();
+    }
+
+    public static String setToString(Set<String> set) {
+        StringBuilder sb = new StringBuilder();
+        set.stream().filter(Objects::nonNull).forEach(data -> sb.append(data).append(SPLIT));
+        if (sb.toString().trim().length() > 0) {
+            int index = sb.lastIndexOf(SPLIT);
+            return sb.substring(0, index);
+        }
+        return sb.toString();
     }
 
 }
