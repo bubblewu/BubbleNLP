@@ -144,7 +144,8 @@ public class DecisionTreeUtils {
 
     /**
      * 切分数据集D中的数据：
-     * 针对每个用户（每行数据）过滤掉D中为attributeIndex列的特征和该特征值为attributeValue的，选择出这些用户在剩下的其他特征空间下的数据；
+     * 针对每个样本数据，过滤当前(最优)特征及其属性数据（即当前特征的全列数据），得到未参与过计算的其他特征维度数据；
+     * 过滤掉attributeIndex列的特征和该特征值为attributeValue的，选择出这些用户在剩下的其他特征空间下的数据；
      *
      * @param dataSet        数据集D
      * @param attributeValue 特征的某个区间值
@@ -152,13 +153,13 @@ public class DecisionTreeUtils {
      * @return 未参与计算的特征和特征值的集合
      */
     public static List<List<String>> splitAttributeDataList(List<List<String>> dataSet, String attributeValue, int featureIndex) {
-        List<List<String>> notUsedFeatureOrValueList = new ArrayList<>();
+        List<List<String>> notUsedFeatureAndValueList = new ArrayList<>();
         List<String> featureNames = dataSet.get(0);
-        notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(featureNames, featureIndex));
+        notUsedFeatureAndValueList.add(getNotUsedFeatureOrValueList(featureNames, featureIndex));
         // 遍历数据集中的每行训练数据，过滤已经计算的最优特征结点的值attributeValue，存储每行的未计算的特征值到集合
         dataSet.stream().skip(1).filter(rd -> rd.get(featureIndex).equals(attributeValue))
-                .forEach(rowData -> notUsedFeatureOrValueList.add(getNotUsedFeatureOrValueList(rowData, featureIndex)));
-        return notUsedFeatureOrValueList;
+                .forEach(rowData -> notUsedFeatureAndValueList.add(getNotUsedFeatureOrValueList(rowData, featureIndex)));
+        return notUsedFeatureAndValueList;
     }
 
     /**

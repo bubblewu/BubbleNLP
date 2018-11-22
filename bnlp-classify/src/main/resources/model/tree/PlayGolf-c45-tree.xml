@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <DecisionTree>
+    <OutLook value="Sunny">
+      <Humidity value="&gt;70">No</Humidity>
+      <Humidity value="&lt;=70">Yes</Humidity>
+    </OutLook>
+    <OutLook value="Overcast">Yes</OutLook>
+    <OutLook value="Rainy">
+      <Windy value="False">Yes</Windy>
+      <Windy value="True">No</Windy>
+    </OutLook>
+  </DecisionTree>
+</root>

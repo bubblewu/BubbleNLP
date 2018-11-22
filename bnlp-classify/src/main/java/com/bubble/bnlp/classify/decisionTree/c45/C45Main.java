@@ -19,7 +19,7 @@ public class C45Main {
         String inputFile = DATA_BASE_PATH + "training/tree/" + fileName + ".txt";
         String outputFile = MODEL_BASE_PATH + "tree/" + fileName + "-c45-tree.xml";
 
-        C45Model.train(inputFile, outputFile);
+        C45Model.train(inputFile, outputFile, false);
         predicateTips(outputFile);
 //        predicatePlayTennis(outputFile);
     }
@@ -28,7 +28,7 @@ public class C45Main {
         Map<String, String> tipMap = Maps.newHashMap();
 //        locations airCompanies airline bct fn positions
         tipMap.put("locations", "NYC");
-        tipMap.put("airCompanies", "AC");
+        tipMap.put("airCompanies", "AC1");
         tipMap.put("airline", "-1");
         tipMap.put("bct", "-1");
         tipMap.put("fn", "JD460");
