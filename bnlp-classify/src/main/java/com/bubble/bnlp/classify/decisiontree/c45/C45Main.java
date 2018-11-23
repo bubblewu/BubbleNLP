@@ -1,6 +1,6 @@
-package com.bubble.bnlp.classify.decisionTree.c45;
+package com.bubble.bnlp.classify.decisiontree.c45;
 
-import com.bubble.bnlp.classify.decisionTree.TreePredicate;
+import com.bubble.bnlp.classify.decisiontree.TreePredicate;
 import com.google.common.collect.Maps;
 
 import java.util.List;
@@ -15,12 +15,12 @@ public class C45Main {
     private static final String MODEL_BASE_PATH = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/";
 
     public static void main(String[] args) {
-        String fileName = "tips";
+        String fileName = "PlayTennis";
         String inputFile = DATA_BASE_PATH + "training/tree/" + fileName + ".txt";
         String outputFile = MODEL_BASE_PATH + "tree/" + fileName + "-c45-tree.xml";
 
-        C45Model.train(inputFile, outputFile, false);
-        predicateTips(outputFile);
+        C45Model.train(inputFile, outputFile);
+//        predicateTips(outputFile);
 //        predicatePlayTennis(outputFile);
     }
 

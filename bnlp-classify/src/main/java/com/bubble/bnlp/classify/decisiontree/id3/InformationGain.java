@@ -1,7 +1,7 @@
-package com.bubble.bnlp.classify.decisionTree.id3;
+package com.bubble.bnlp.classify.decisiontree.id3;
 
 import com.bubble.bnlp.bean.exception.DecisionTreeException;
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

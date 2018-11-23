@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree.test;
+package com.bubble.bnlp.classify.decisiontree.test;
 
 import java.util.HashMap;
 import java.util.List;

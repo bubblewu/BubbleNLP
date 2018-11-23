@@ -1,8 +1,8 @@
-package com.bubble.bnlp.classify.decisionTree.cart;
+package com.bubble.bnlp.classify.decisiontree.cart;
 
 import com.bubble.bnlp.bean.exception.DecisionTreeException;
-import com.bubble.bnlp.classify.decisionTree.ContinuouslyVariable;
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.ContinuouslyVariable;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;

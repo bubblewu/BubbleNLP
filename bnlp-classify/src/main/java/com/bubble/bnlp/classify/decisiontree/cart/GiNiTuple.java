@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree.cart;
+package com.bubble.bnlp.classify.decisiontree.cart;
 
 /**
  * "特征-属性-基尼指数" 三元组

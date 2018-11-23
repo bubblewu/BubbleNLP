@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree;
+package com.bubble.bnlp.classify.decisiontree;
 
 import java.util.Objects;
 

@@ -1,7 +1,7 @@
-package com.bubble.bnlp.classify.decisionTree.cart;
+package com.bubble.bnlp.classify.decisiontree.cart;
 
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 
 import java.util.List;
 

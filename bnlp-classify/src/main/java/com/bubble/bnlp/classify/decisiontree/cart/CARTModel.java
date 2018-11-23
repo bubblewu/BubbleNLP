@@ -1,8 +1,8 @@
-package com.bubble.bnlp.classify.decisionTree.cart;
+package com.bubble.bnlp.classify.decisiontree.cart;
 
 import com.bubble.bnlp.bean.exception.DecisionTreeException;
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

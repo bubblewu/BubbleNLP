@@ -1,7 +1,7 @@
-package com.bubble.bnlp.classify.decisionTree.id3;
+package com.bubble.bnlp.classify.decisiontree.id3;
 
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 import com.google.common.collect.Lists;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

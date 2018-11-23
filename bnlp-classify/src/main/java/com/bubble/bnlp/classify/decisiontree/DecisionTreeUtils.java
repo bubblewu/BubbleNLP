@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree;
+package com.bubble.bnlp.classify.decisiontree;
 
 import com.bubble.bnlp.common.ToolKits;
 import com.google.common.collect.Lists;

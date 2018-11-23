@@ -1,6 +1,6 @@
-package com.bubble.bnlp.classify.decisionTree.c45;
+package com.bubble.bnlp.classify.decisiontree.c45;
 
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 import com.bubble.bnlp.common.ToolKits;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -10,14 +10,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * 针对Tips数据的业务剪枝
+ * 对树结构进行修正
  *
  * @author wugang
  * date: 2018-11-22 16:10
  **/
-public class TipsPruning {
+public class FixTree {
 
-    public static void pruning(TreeNode treeNode) {
+    public static void fix(TreeNode treeNode) {
         fixChildNodes(treeNode);
         fixParentNodes(treeNode);
     }
@@ -34,8 +34,11 @@ public class TipsPruning {
             List<TreeNode> childNodes = Optional.ofNullable(treeNode.getChildNodes()).orElse(Lists.newArrayListWithCapacity(1));//.stream().filter(node -> !node.isLeaf()).collect(Collectors.toList());
             Map<String, Set<String>> leafEdgeMap = Maps.newHashMap();
             TreeNode node;
-            for (TreeNode childNode : childNodes) {
-                node = childNode;
+            int totalCount = childNodes.size();
+            int nowCount = 0;
+            for (int i = 0; i < totalCount; i++) {
+                nowCount++;
+                node = childNodes.get(i);
                 if (node.isLeaf()) {
                     addEdgeForLeafMap(leafEdgeMap, node.getLeafValue(), node.getDirectedEdgeValue());
                 } else {
@@ -54,13 +57,17 @@ public class TipsPruning {
                 tempChildNodes.add(childTree);
 
             });
+            // 有向边是否为连续变量
+            boolean isContinuouslyVariable = tempChildNodes.stream().anyMatch(n -> n.getDirectedEdgeValue().startsWith(">") || n.getDirectedEdgeValue().startsWith("<="));
             if (!tempChildNodes.isEmpty()) {
-                treeNode.clearChildNodes();
                 if (tempChildNodes.size() == 1) {
-                    // 某父结点的子结点的属性值全部相同，直接归为叶结点；
-                    treeNode.setLeaf(true);
-                    treeNode.setLeafValue(tempChildNodes.get(0).getLeafValue());
-                } else {
+                    if (nowCount != totalCount) {
+                        treeNode.clearChildNodes();
+                        // 某父结点的子结点的属性值全部相同，直接归为叶结点；
+                        treeNode.setLeaf(true);
+                        treeNode.setLeafValue(tempChildNodes.get(0).getLeafValue());
+                    }
+                } else if (!isContinuouslyVariable) {
                     // add Negative node 父结点下无符合子结点属性的情况下，返回所有子结点的叶子结点数据；
                     TreeNode negativeTree = new TreeNode();
                     negativeTree.setLeaf(true);
@@ -68,9 +75,7 @@ public class TipsPruning {
                     negativeTree.setDirectedEdgeValue("Negative");
                     String leafValue = ToolKits.setToString(leafEdgeMap.keySet());
                     negativeTree.setLeafValue(leafValue);
-                    tempChildNodes.add(negativeTree);
-
-                    treeNode.addChildNodes(tempChildNodes);
+                    treeNode.addChildNodes(negativeTree);
                 }
             }
 
@@ -85,6 +90,9 @@ public class TipsPruning {
     private static void fixParentNodes(TreeNode fixedTree) {
         if (!fixedTree.isLeaf()) {
             List<TreeNode> childNodes = fixedTree.getChildNodes().stream().filter(TreeNode::isLeaf).collect(Collectors.toList());
+            if (childNodes.size() == 1) {
+                return;
+            }
             Map<String, Set<String>> leafEdgeMap = Maps.newHashMap();
             TreeNode node;
             for (TreeNode childNode : childNodes) {

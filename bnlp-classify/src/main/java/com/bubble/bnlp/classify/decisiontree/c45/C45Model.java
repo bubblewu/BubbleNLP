@@ -1,7 +1,7 @@
-package com.bubble.bnlp.classify.decisionTree.c45;
+package com.bubble.bnlp.classify.decisiontree.c45;
 
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,13 +17,11 @@ import java.util.Map;
 public class C45Model {
     private static final Logger LOGGER = LoggerFactory.getLogger(C45Model.class);
 
-    static void train(String inputFile, String outputFile, boolean isTips) {
+    static void train(String inputFile, String outputFile) {
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(inputFile);
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);
         TreeNode treeNode = C45Model.createDecisionTree(dataSet);
-        if (isTips) {
-            TipsPruning.pruning(treeNode);
-        }
+        FixTree.fix(treeNode);
         DecisionTreeUtils.showDecisionTree(treeNode, "");
         DecisionTreeUtils.saveTree2XML(treeNode, outputFile);
     }
@@ -52,7 +50,7 @@ public class C45Model {
      * @param treeNode 特征结点
      */
     private static void genTreeNode(List<List<String>> dataSet, TreeNode treeNode) {
-        // 获取某特征下的所有属性值
+        // 获取某特征下的所有特征值
         List<String> attributeList = DecisionTreeUtils.getFeatureValueList(dataSet, treeNode.getNode());
         // 获得特征在原数据中所处的列索引
         int featureIndex = DecisionTreeUtils.getFeatureIndex(dataSet.get(0), treeNode.getNode());

@@ -1,4 +1,4 @@
-package com.bubble.bnlp.classify.decisionTree;
+package com.bubble.bnlp.classify.decisiontree;
 
 /**
  * 决策树类型

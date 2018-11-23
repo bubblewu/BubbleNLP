@@ -1,11 +1,9 @@
-package com.bubble.bnlp.classify.decisionTree.id3;
+package com.bubble.bnlp.classify.decisiontree.id3;
 
-import com.bubble.bnlp.classify.decisionTree.DecisionTreeUtils;
-import com.bubble.bnlp.classify.decisionTree.TreeNode;
-import com.google.common.collect.Maps;
+import com.bubble.bnlp.classify.decisiontree.DecisionTreeUtils;
+import com.bubble.bnlp.classify.decisiontree.TreeNode;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author wugang
