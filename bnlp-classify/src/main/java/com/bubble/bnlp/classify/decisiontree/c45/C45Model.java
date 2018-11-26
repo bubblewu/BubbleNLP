@@ -21,6 +21,8 @@ public class C45Model {
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(inputFile);
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);
         TreeNode treeNode = C45Model.createDecisionTree(dataSet);
+        DecisionTreeUtils.showDecisionTree(treeNode, "");
+
         FixTree.fix(treeNode);
         DecisionTreeUtils.showDecisionTree(treeNode, "");
         DecisionTreeUtils.saveTree2XML(treeNode, outputFile);

@@ -5,55 +5,31 @@
     <time value="&lt;=13">
       <price value="&gt;418">
         <holiday value="weekend">
-          <intDepDate value="&lt;=20160217">
-            <tid value="&lt;=2">high</tid>
-            <tid value="&gt;2">high</tid>
-          </intDepDate>
+          <intDepDate value="&lt;=20160217">high</intDepDate>
           <intDepDate value="&gt;20160217">high</intDepDate>
         </holiday>
         <holiday value="weekday">
-          <intDepDate value="&lt;=20160217">
-            <tid value="&lt;=2">high</tid>
-            <tid value="&gt;2">high</tid>
-          </intDepDate>
-          <intDepDate value="&gt;20160217">
-            <tid value="&gt;2">high</tid>
-            <tid value="&lt;=2">high</tid>
-          </intDepDate>
+          <intDepDate value="&lt;=20160217">high</intDepDate>
+          <intDepDate value="&gt;20160217">high</intDepDate>
         </holiday>
-        <holiday value="holiday">
-          <tid value="&lt;=2">high</tid>
-          <tid value="&gt;2">high</tid>
-        </holiday>
+        <holiday value="holiday">high</holiday>
       </price>
       <price value="&lt;=418">low</price>
     </time>
     <time value="&gt;13">
       <holiday value="weekday">
         <dayInterval value="&lt;=80">
-          <tid value="&lt;=2">
-            <intDepDate value="&lt;=20160217">high</intDepDate>
-            <intDepDate value="&gt;20160217">high</intDepDate>
-          </tid>
-          <tid value="&gt;2">
-            <intDepDate value="&lt;=20160217">high</intDepDate>
-            <intDepDate value="&gt;20160217">high</intDepDate>
-          </tid>
+          <tid value="&lt;=2">high</tid>
+          <tid value="&gt;2">high</tid>
         </dayInterval>
         <dayInterval value="&gt;80">low</dayInterval>
       </holiday>
       <holiday value="weekend">
         <intDepDate value="&lt;=20160217">
-          <dayInterval value="&lt;=80">
-            <tid value="&lt;=2">high</tid>
-            <tid value="&gt;2">high</tid>
-          </dayInterval>
+          <dayInterval value="&lt;=80">high</dayInterval>
           <dayInterval value="&gt;80">high</dayInterval>
         </intDepDate>
-        <intDepDate value="&gt;20160217">
-          <tid value="&lt;=2">high</tid>
-          <tid value="&gt;2">high</tid>
-        </intDepDate>
+        <intDepDate value="&gt;20160217">high</intDepDate>
       </holiday>
       <holiday value="holiday">
         <dayInterval value="&lt;=80">
