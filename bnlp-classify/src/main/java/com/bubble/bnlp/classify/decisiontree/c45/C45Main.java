@@ -15,7 +15,7 @@ public class C45Main {
     private static final String MODEL_BASE_PATH = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/resources/model/";
 
     public static void main(String[] args) {
-        String fileName = "flight";
+        String fileName = "tips";
         String inputFile = DATA_BASE_PATH + "training/tree/" + fileName + ".txt";
         String outputFile = MODEL_BASE_PATH + "tree/" + fileName + "-c45-tree.xml";
 
