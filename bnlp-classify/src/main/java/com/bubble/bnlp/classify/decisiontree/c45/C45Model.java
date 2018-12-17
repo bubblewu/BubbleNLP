@@ -20,14 +20,16 @@ public class C45Model {
     static void train(String inputFile, String outputFile) {
         List<List<String>> dataSet = DecisionTreeUtils.getTrainingData(inputFile);
         DecisionTreeUtils.transformContinuouslyVariables(dataSet);
-        TreeNode treeNode = C45Model.createDecisionTree(dataSet);
+        TreeNode treeNode = createDecisionTree(dataSet);
         LOGGER.info("before fix:");
         DecisionTreeUtils.showDecisionTree(treeNode, "");
 
         FixTree.fix(treeNode);
         LOGGER.info("after fix:");
         DecisionTreeUtils.showDecisionTree(treeNode, "");
-        DecisionTreeUtils.saveTree2XML(treeNode, outputFile);
+        DecisionTreeUtils.saveTree2XML(treeNode, outputFile + ".xml");
+        DecisionTreeUtils.saveTree2Json(treeNode, outputFile + ".json");
+
     }
 
     /**

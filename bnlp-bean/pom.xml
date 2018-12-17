@@ -13,6 +13,7 @@
 
     <properties>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <guava.version>26.0-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -20,6 +21,11 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>${commons-beanutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 

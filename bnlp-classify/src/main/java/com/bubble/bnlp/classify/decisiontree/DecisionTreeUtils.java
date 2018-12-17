@@ -1,5 +1,7 @@
 package com.bubble.bnlp.classify.decisiontree;
 
+import com.alibaba.fastjson.JSON;
+import com.bubble.bnlp.bean.tree.ResultBeen;
 import com.bubble.bnlp.common.ToolKits;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -97,15 +99,12 @@ public class DecisionTreeUtils {
             // 每行的特征值数据
             List<String> rowData = dataSet.get(rowIndex);
             // 获取当前特征的值
-            String attributeValue = rowData.get(featureIndex);
-//            try {
-//                attributeValue = rowData.get(featureIndex);
-//            } catch (Exception e) {
-//                attributeValue = "";
-//                System.out.println(rowData.size());
-//                System.out.println(featureIndex);
-//            }
-
+            String attributeValue = "";
+            try {
+                attributeValue = rowData.get(featureIndex);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             // 获取当前特征值对应的类值
             String classify = rowData.get(rowData.size() - 1);
 
@@ -144,8 +143,7 @@ public class DecisionTreeUtils {
 
     /**
      * 切分数据集D中的数据：
-     * 针对每个样本数据，过滤当前(最优)特征及其属性数据（即当前特征的全列数据），得到未参与过计算的其他特征维度数据；
-     * 过滤掉attributeIndex列的特征和该特征值为attributeValue的，选择出这些用户在剩下的其他特征空间下的数据；
+     * 针对每个用户（每行数据）过滤掉D中为attributeIndex列的特征和该特征值为attributeValue的，选择出这些用户在剩下的其他特征空间下的数据；
      *
      * @param dataSet        数据集D
      * @param attributeValue 特征的某个区间值
@@ -153,93 +151,36 @@ public class DecisionTreeUtils {
      * @return 未参与计算的特征和特征值的集合
      */
     public static List<List<String>> splitAttributeDataList(List<List<String>> dataSet, String attributeValue, int featureIndex) {
-        List<List<String>> notUsedFeatureAndValueList = new ArrayList<>();
+        List<List<String>> notUsedFeatureOrValueList = new ArrayList<>();
         List<String> featureNames = dataSet.get(0);
-        notUsedFeatureAndValueList.add(getNotUsedFeatureOrValueList(featureNames, featureIndex));
+        notUsedFeatureOrValueList.add(getNotUsedFeatureList(featureNames, featureIndex));
         // 遍历数据集中的每行训练数据，过滤已经计算的最优特征结点的值attributeValue，存储每行的未计算的特征值到集合
         dataSet.stream().skip(1).filter(rd -> rd.get(featureIndex).equals(attributeValue))
-                .forEach(rowData -> notUsedFeatureAndValueList.add(getNotUsedFeatureOrValueList(rowData, featureIndex)));
-        return notUsedFeatureAndValueList;
+                .forEach(rowData -> notUsedFeatureOrValueList.add(getNotUsedAttributeList(rowData, featureIndex)));
+        return notUsedFeatureOrValueList;
     }
 
-    /**
-     * 获取数据集D中的还未参与计算的特征名或特征值集合，过滤指定列索引的特征或特征值（移除已经计算的特征或特征值）。
-     *
-     * @param lineDataList   数据集中的特征或特征值集合
-     * @param attributeIndex 已计算过的特征在D中的列索引
-     * @return 未计算的特征或特征值集合
-     */
-    private static List<String> getNotUsedFeatureOrValueList(List<String> lineDataList, int attributeIndex) {
-        return lineDataList.stream().filter(attributeName -> !attributeName.equals(lineDataList.get(attributeIndex)))
+    private static List<String> getNotUsedFeatureList(List<String> lineDataList, int featureIndex) {
+        return lineDataList.stream().filter(attributeName -> !attributeName.equals(lineDataList.get(featureIndex)))
                 .collect(Collectors.toList());
     }
 
-
     /**
-     * 打印ID3决策树
+     * 获取未参与计算的特征值集合，过滤指定列索引的特征值（移除已经计算的特征值）。
      *
-     * @param node   结点
-     * @param prefix 定义输出前缀
+     * @param lineDataList 数据集中的每行数据
+     * @param featureIndex 已计算过的特征在D中的列索引
+     * @return 未计算的特征值集合
      */
-    public static void showDecisionTree(TreeNode node, String prefix) {
-        if (node == null) {
-            return;
-        }
-        String value;
-        if (node.isLeaf()) {
-            value = node.getLeafValue();
-        } else {
-            value = node.getNode();
-        }
-        System.out.println(prefix + (node.getDirectedEdgeValue() == null ? "" : node.getDirectedEdgeValue() + "->") + value);
-
-        List<TreeNode> children = node.getChildNodes();
-        if (children == null) {
-            return;
-        }
-        prefix += "\t";
-        for (TreeNode child : children) {
-            showDecisionTree(child, prefix);
-        }
-    }
-
-    /**
-     * 将决策树模型保存为xml文件
-     *
-     * @param treeNode  决策树模型
-     * @param modelFile 输出文件
-     */
-    public static void saveTree2XML(TreeNode treeNode, String modelFile) {
-        Document xml = DocumentHelper.createDocument();
-        Element root = xml.addElement("root");
-        Element nextNode = root.addElement("DecisionTree");
-        generateXML(treeNode, nextNode);
-        try {
-            OutputFormat format = OutputFormat.createPrettyPrint();
-            Writer fileWriter = new FileWriter(modelFile);
-            XMLWriter output = new XMLWriter(fileWriter, format);
-            output.write(xml);
-            output.close();
-        } catch (IOException e) {
-            LOGGER.error("save decision tree as xml error.", e);
-        }
-    }
-
-    private static void generateXML(TreeNode treeNode, Element node) {
-        if (null == treeNode.getChildNodes()) {
-            return;
-        }
-        treeNode.getChildNodes().forEach(childNode -> {
-            Element nextNode = node.addElement(treeNode.getNode());
-
-            nextNode.addAttribute("value", childNode.getDirectedEdgeValue());
-            if (childNode.isLeaf()) {
-                nextNode.setText(childNode.getLeafValue());
+    private static List<String> getNotUsedAttributeList(List<String> lineDataList, int featureIndex) {
+        List<String> notUsedAttributes = Lists.newArrayList();
+        for (int i = 0; i < lineDataList.size(); i++) {
+            if (i != featureIndex) {
+                notUsedAttributes.add(lineDataList.get(i));
             }
-            generateXML(childNode, nextNode);
-        });
+        }
+        return notUsedAttributes;
     }
-
 
     /**
      * 将原始数据中的连续变量为离散变量
@@ -519,6 +460,113 @@ public class DecisionTreeUtils {
             pSum += Math.pow((1.0 * count / totalCount), 2);
         }
         return 1 - pSum;
+    }
+
+    /**
+     * 打印ID3决策树
+     *
+     * @param node   结点
+     * @param prefix 定义输出前缀
+     */
+    public static void showDecisionTree(TreeNode node, String prefix) {
+        if (node == null) {
+            return;
+        }
+        String value;
+        if (node.isLeaf()) {
+            value = node.getLeafValue();
+        } else {
+            value = node.getNode();
+        }
+        System.out.println(prefix + (node.getDirectedEdgeValue() == null ? "" : node.getDirectedEdgeValue() + "->") + value);
+
+        List<TreeNode> children = node.getChildNodes();
+        if (children == null) {
+            return;
+        }
+        prefix += "\t";
+        for (TreeNode child : children) {
+            showDecisionTree(child, prefix);
+        }
+    }
+
+    /**
+     * 将决策树模型保存为xml文件
+     *
+     * @param treeNode  决策树模型
+     * @param modelFile 输出文件
+     */
+    public static void saveTree2XML(TreeNode treeNode, String modelFile) {
+        Document xml = DocumentHelper.createDocument();
+        Element root = xml.addElement("root");
+        Element nextNode = root.addElement("Decision");
+        generateXML(treeNode, nextNode);
+        try {
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            Writer fileWriter = new FileWriter(modelFile);
+            XMLWriter output = new XMLWriter(fileWriter, format);
+            output.write(xml);
+            output.close();
+        } catch (IOException e) {
+            LOGGER.error("save decision tree as xml error.", e);
+        }
+    }
+
+    private static void generateXML(TreeNode treeNode, Element node) {
+        if (null == treeNode.getChildNodes()) {
+            return;
+        }
+        treeNode.getChildNodes().forEach(childNode -> {
+            Element nextNode = node.addElement(treeNode.getNode());
+
+            nextNode.addAttribute("value", childNode.getDirectedEdgeValue());
+            if (childNode.isLeaf()) {
+                nextNode.setText(childNode.getLeafValue());
+            }
+            generateXML(childNode, nextNode);
+        });
+    }
+
+    public static void saveTree2Json(TreeNode treeNode, String modelFile) {
+        ResultBeen result = new ResultBeen();
+        generateJson(treeNode, result);
+        Object json = JSON.toJSON(result);
+        try {
+            Writer fileWriter = new FileWriter(modelFile);
+            fileWriter.write(json.toString());
+            fileWriter.close();
+        } catch (IOException e) {
+            LOGGER.error("save decision tree as xml error.", e);
+        }
+    }
+
+    private static void generateJson(TreeNode treeNode, ResultBeen result) {
+        if (treeNode.isLeaf()) {
+            result.setAttr(treeNode.getNode());
+            result.setResult(treeNode.getLeafValue());
+        } else {
+            treeNode.getChildNodes().forEach(child -> {
+                ResultBeen rb = new ResultBeen();
+                rb.setAttr(treeNode.getNode());
+                String conditionValue = child.getDirectedEdgeValue();
+                if (NumberUtils.isDigits(conditionValue)) {
+                    rb.setCondition("<=" + conditionValue);
+                } else if (conditionValue.contains("~")) {
+                    rb.setCondition("->" + conditionValue); // in
+                } else {
+                    rb.setCondition("=" + conditionValue);
+                }
+
+                if (!child.isLeaf()) {
+                    result.addChildren(rb);
+                    generateJson(child, rb);
+                } else {
+                    rb.setResult(child.getLeafValue());
+                    result.addChildren(rb);
+                }
+            });
+
+        }
     }
 
 }

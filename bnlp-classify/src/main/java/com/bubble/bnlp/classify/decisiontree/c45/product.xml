@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+  <Decision>
+    <depCountryCode value="CN">
+      <arrCountryCode value="JP">
+        <duringMinutes value="1~300">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="300~600">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="600~999">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="0~1">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
+          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
+        </duringMinutes>
+      </arrCountryCode>
+      <arrCountryCode value="KR">
+        <duringMinutes value="1~300">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="300~600">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="600~999">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="0~1">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
+          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
+        </duringMinutes>
+      </arrCountryCode>
+      <arrCountryCode value="US">
+        <duringMinutes value="1~300">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="300~600">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="600~999">
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="0~1">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
+          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
+        </duringMinutes>
+      </arrCountryCode>
+      <arrCountryCode value="*">
+        <duringMinutes value="0~1">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
+          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="1~300">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="300~600">
+          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
+        </duringMinutes>
+        <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+      </arrCountryCode>
+      <arrCountryCode value="CN">
+        <arrWeather value="雨">
+          <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cf7</duringMinutes>
+          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        </arrWeather>
+        <arrWeather value="雪">
+          <duringMinutes value="0~1">
+            <beforeDepartHour value="6~144">5bffaec57ad3af4fc98e0cf8</beforeDepartHour>
+            <beforeDepartHour value="144~99999">5bffaec57ad3af4fc98e0cfa</beforeDepartHour>
+            <beforeDepartHour value="Negative">5bffaec57ad3af4fc98e0cf8,5bffaec57ad3af4fc98e0cfa</beforeDepartHour>
+          </duringMinutes>
+          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        </arrWeather>
+        <arrWeather value="*">
+          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        </arrWeather>
+      </arrCountryCode>
+    </depCountryCode>
+    <depCountryCode value="*">
+      <arrWeather value="雨">
+        <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cf7</duringMinutes>
+        <duringMinutes value="1~300,600~999,300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        <duringMinutes value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfc</duringMinutes>
+      </arrWeather>
+      <arrWeather value="雪">
+        <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cfa</duringMinutes>
+        <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+        <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
+      </arrWeather>
+      <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
+    </depCountryCode>
+  </Decision>
+</root>
