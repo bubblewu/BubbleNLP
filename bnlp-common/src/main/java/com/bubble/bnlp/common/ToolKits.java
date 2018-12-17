@@ -78,4 +78,11 @@ public class ToolKits {
         return sb.toString();
     }
 
+    public static boolean isNumeric(Class<?> type) {
+        if (type == Integer.class || type == Integer.TYPE || type == Float.class || type == Float.TYPE || type == Double.class || type == Double.TYPE) {
+            return true;
+        }
+        return false;
+    }
+
 }
