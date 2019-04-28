@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 基于Disruptor无锁缓存框架的生产者-消费者实现dmeo
+ * 基于Disruptor无锁缓存框架的生产者-消费者实现demo
  * (Disruptor的性能要比BlockingQueue至少高一个数量级以上）
  *
  * @author wugang

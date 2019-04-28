@@ -2,6 +2,7 @@ package com.bubble.bnlp.classify.perceptron;
 
 import com.bubble.bnlp.classify.perceptron.entity.DataSet;
 import com.bubble.bnlp.classify.perceptron.service.DualFormPerceptron;
+import com.bubble.bnlp.classify.perceptron.service.Predict;
 import com.bubble.bnlp.classify.perceptron.service.PrimalFormPerceptron;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
@@ -36,11 +37,17 @@ public class PerceptronMain {
         String primalModelFile = basePath + "primal-form-model.txt";
         perceptron.saveModel(primalModelFile);
 
-        // 对偶形式
+//        // 对偶形式
         Perceptron dualFormPerceptron = new DualFormPerceptron(trainDataSet, featureDimension);
         dualFormPerceptron.train();
         String dualModelFile = basePath + "dual-form-model.txt";
         dualFormPerceptron.saveModel(dualModelFile);
+
+        // 分类预测测试
+        String testFile = basePath + "test.txt";
+        List<DataSet> testDataSet = loadData(testFile);
+        Predict predict = new Predict(testDataSet, featureDimension, primalModelFile);
+        predict.predict();
     }
 
     private static List<DataSet> loadData(String dataFile) {
