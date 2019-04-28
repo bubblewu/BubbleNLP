@@ -2,128 +2,1314 @@
 
 <root>
   <Decision>
-    <depCountryCode value="CN">
-      <arrCountryCode value="JP">
-        <duringMinutes value="1~300">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="300~600">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="600~999">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="0~1">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
-          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
-        </duringMinutes>
-      </arrCountryCode>
-      <arrCountryCode value="KR">
-        <duringMinutes value="1~300">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="300~600">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="600~999">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="0~1">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
-          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
-        </duringMinutes>
-      </arrCountryCode>
-      <arrCountryCode value="US">
-        <duringMinutes value="1~300">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="300~600">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="600~999">
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="0~1">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
-          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
-        </duringMinutes>
-      </arrCountryCode>
-      <arrCountryCode value="*">
-        <duringMinutes value="0~1">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cf7</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfa</arrWeather>
-          <arrWeather value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfa</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="1~300">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="300~600">
-          <arrWeather value="雨">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-          <arrWeather value="雪">5bffaec57ad3af4fc98e0cfc</arrWeather>
-        </duringMinutes>
-        <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-      </arrCountryCode>
-      <arrCountryCode value="CN">
-        <arrWeather value="雨">
-          <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cf7</duringMinutes>
-          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        </arrWeather>
-        <arrWeather value="雪">
-          <duringMinutes value="0~1">
-            <beforeDepartHour value="6~144">5bffaec57ad3af4fc98e0cf8</beforeDepartHour>
-            <beforeDepartHour value="144~99999">5bffaec57ad3af4fc98e0cfa</beforeDepartHour>
-            <beforeDepartHour value="Negative">5bffaec57ad3af4fc98e0cf8,5bffaec57ad3af4fc98e0cfa</beforeDepartHour>
-          </duringMinutes>
-          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        </arrWeather>
-        <arrWeather value="*">
-          <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-          <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        </arrWeather>
-      </arrCountryCode>
-    </depCountryCode>
-    <depCountryCode value="*">
-      <arrWeather value="雨">
-        <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cf7</duringMinutes>
-        <duringMinutes value="1~300,600~999,300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        <duringMinutes value="Negative">5bffaec57ad3af4fc98e0cf7,5bffaec57ad3af4fc98e0cfc</duringMinutes>
-      </arrWeather>
-      <arrWeather value="雪">
-        <duringMinutes value="0~1">5bffaec57ad3af4fc98e0cfa</duringMinutes>
-        <duringMinutes value="1~300">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        <duringMinutes value="300~600">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-        <duringMinutes value="600~999">5bffaec57ad3af4fc98e0cfc</duringMinutes>
-      </arrWeather>
-      <arrWeather value="*">5bffaec57ad3af4fc98e0cfc</arrWeather>
-    </depCountryCode>
+    <cityCode value="BJS">
+      <isNewUserForCar value="0">
+        <tripType value="1">A1</tripType>
+        <tripType value="2">A2</tripType>
+        <tripType value="Negative">A1,A2</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A212</tripType>
+        <tripType value="1">A211</tripType>
+        <tripType value="Negative">A212,A211</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="1">D11</userType>
+        <userType value="0">D1</userType>
+        <userType value="-1">C1</userType>
+        <userType value="Negative">D11,D1,C1</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="SHA">
+      <isNewUserForCar value="0">
+        <tripType value="1">A3</tripType>
+        <tripType value="2">A4</tripType>
+        <tripType value="Negative">A3,A4</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A214</tripType>
+        <tripType value="1">A213</tripType>
+        <tripType value="Negative">A214,A213</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="1">D12</userType>
+        <userType value="0">D2</userType>
+        <userType value="-1">C2</userType>
+        <userType value="Negative">D12,D2,C2</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="CAN">
+      <isNewUserForCar value="0">
+        <tripType value="1">A5</tripType>
+        <tripType value="2">A6</tripType>
+        <tripType value="Negative">A5,A6</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A216</tripType>
+        <tripType value="1">A215</tripType>
+        <tripType value="Negative">A216,A215</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="-1">C4</userType>
+        <userType value="1">D13</userType>
+        <userType value="0">D3</userType>
+        <userType value="Negative">C4,D13,D3</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="SZX">
+      <isNewUserForCar value="0">
+        <tripType value="1">A7</tripType>
+        <tripType value="2">A8</tripType>
+        <tripType value="Negative">A7,A8</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A218</tripType>
+        <tripType value="1">A217</tripType>
+        <tripType value="Negative">A218,A217</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="-1">C3</userType>
+        <userType value="0">D4</userType>
+        <userType value="1">D14</userType>
+        <userType value="Negative">C3,D4,D14</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="WUH">
+      <isNewUserForCar value="0">
+        <tripType value="2">A10</tripType>
+        <tripType value="1">A9</tripType>
+        <tripType value="Negative">A10,A9</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A220</tripType>
+        <tripType value="1">A219</tripType>
+        <tripType value="Negative">A220,A219</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="0">D5</userType>
+        <userType value="-1">C6</userType>
+        <userType value="1">D15</userType>
+        <userType value="Negative">D5,C6,D15</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="HGH">
+      <userType value="-1">
+        <isNewUserForCar value="0">
+          <tripType value="1">A11</tripType>
+          <tripType value="2">A12</tripType>
+          <tripType value="Negative">A11,A12</tripType>
+        </isNewUserForCar>
+        <isNewUserForCar value="1">
+          <tripType value="1">A221</tripType>
+          <tripType value="2">A222</tripType>
+          <tripType value="Negative">A221,A222</tripType>
+        </isNewUserForCar>
+        <isNewUserForCar value="-1">C5</isNewUserForCar>
+      </userType>
+      <userType value="0">
+        <arrTimeRange value="05:00-07:59">D8</arrTimeRange>
+        <arrTimeRange value="*">E2</arrTimeRange>
+        <arrTimeRange value="Negative">D8,E2</arrTimeRange>
+      </userType>
+      <userType value="1">
+        <arrTimeRange value="*">E5</arrTimeRange>
+        <arrTimeRange value="05:00-07:59">D18</arrTimeRange>
+        <arrTimeRange value="Negative">E5,D18</arrTimeRange>
+      </userType>
+    </cityCode>
+    <cityCode value="FOK">
+      <isNewUserForCar value="0">
+        <tripType value="1">A13</tripType>
+        <tripType value="2">A14</tripType>
+        <tripType value="Negative">A13,A14</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="1">A223</tripType>
+        <tripType value="2">A224</tripType>
+        <tripType value="Negative">A223,A224</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="0">D6</userType>
+        <userType value="-1">C7</userType>
+        <userType value="1">D16</userType>
+        <userType value="Negative">D6,C7,D16</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="CTU">
+      <userType value="-1">
+        <isNewUserForCar value="0">
+          <tripType value="1">A15</tripType>
+          <tripType value="2">A16</tripType>
+          <tripType value="Negative">A15,A16</tripType>
+        </isNewUserForCar>
+        <isNewUserForCar value="1">
+          <tripType value="1">A225</tripType>
+          <tripType value="2">A226</tripType>
+          <tripType value="Negative">A225,A226</tripType>
+        </isNewUserForCar>
+        <isNewUserForCar value="-1">
+          <airportTerminal value="*">C9</airportTerminal>
+          <airportTerminal value="T2">G1</airportTerminal>
+          <airportTerminal value="Negative">C9,G1</airportTerminal>
+        </isNewUserForCar>
+      </userType>
+      <userType value="0">
+        <arrTimeRange value="05:00-07:59">D10</arrTimeRange>
+        <arrTimeRange value="*">E3</arrTimeRange>
+        <arrTimeRange value="Negative">D10,E3</arrTimeRange>
+      </userType>
+      <userType value="1">
+        <arrTimeRange value="*">E6</arrTimeRange>
+        <arrTimeRange value="05:00-07:59">D20</arrTimeRange>
+        <arrTimeRange value="Negative">E6,D20</arrTimeRange>
+      </userType>
+    </cityCode>
+    <cityCode value="TNA">
+      <tripType value="1">
+        <isNewUserForCar value="0">A17</isNewUserForCar>
+        <isNewUserForCar value="1">A227</isNewUserForCar>
+        <isNewUserForCar value="Negative">A17,A227</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A18</isNewUserForCar>
+        <isNewUserForCar value="1">A228</isNewUserForCar>
+        <isNewUserForCar value="Negative">A18,A228</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="TAO">
+      <tripType value="1">
+        <isNewUserForCar value="1">A229</isNewUserForCar>
+        <isNewUserForCar value="0">A19</isNewUserForCar>
+        <isNewUserForCar value="Negative">A229,A19</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A230</isNewUserForCar>
+        <isNewUserForCar value="0">A20</isNewUserForCar>
+        <isNewUserForCar value="Negative">A230,A20</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="TSN">
+      <tripType value="1">
+        <isNewUserForCar value="0">A21</isNewUserForCar>
+        <isNewUserForCar value="1">A231</isNewUserForCar>
+        <isNewUserForCar value="Negative">A21,A231</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A22</isNewUserForCar>
+        <isNewUserForCar value="1">A232</isNewUserForCar>
+        <isNewUserForCar value="Negative">A22,A232</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="CKG">
+      <isNewUserForCar value="0">
+        <tripType value="1">A23</tripType>
+        <tripType value="2">A24</tripType>
+        <tripType value="Negative">A23,A24</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A234</tripType>
+        <tripType value="1">A233</tripType>
+        <tripType value="Negative">A234,A233</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="0">D9</userType>
+        <userType value="1">D19</userType>
+        <userType value="Negative">D9,D19</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="CSX">
+      <isNewUserForCar value="0">
+        <tripType value="1">A25</tripType>
+        <tripType value="2">A26</tripType>
+        <tripType value="Negative">A25,A26</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A236</tripType>
+        <tripType value="1">A235</tripType>
+        <tripType value="Negative">A236,A235</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="0">D7</userType>
+        <userType value="-1">C8</userType>
+        <userType value="1">D17</userType>
+        <userType value="Negative">D7,C8,D17</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="HAK">
+      <tripType value="1">
+        <isNewUserForCar value="0">A27</isNewUserForCar>
+        <isNewUserForCar value="1">A237</isNewUserForCar>
+        <isNewUserForCar value="Negative">A27,A237</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A28</isNewUserForCar>
+        <isNewUserForCar value="1">A238</isNewUserForCar>
+        <isNewUserForCar value="Negative">A28,A238</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="SYX">
+      <tripType value="1">
+        <isNewUserForCar value="0">A29</isNewUserForCar>
+        <isNewUserForCar value="1">A239</isNewUserForCar>
+        <isNewUserForCar value="Negative">A29,A239</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A240</isNewUserForCar>
+        <isNewUserForCar value="0">A30</isNewUserForCar>
+        <isNewUserForCar value="Negative">A240,A30</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="TYN">
+      <tripType value="1">
+        <isNewUserForCar value="1">A241</isNewUserForCar>
+        <isNewUserForCar value="0">A31</isNewUserForCar>
+        <isNewUserForCar value="Negative">A241,A31</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A32</isNewUserForCar>
+        <isNewUserForCar value="1">A242</isNewUserForCar>
+        <isNewUserForCar value="Negative">A32,A242</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="SHE">
+      <tripType value="1">
+        <isNewUserForCar value="0">A33</isNewUserForCar>
+        <isNewUserForCar value="1">A243</isNewUserForCar>
+        <isNewUserForCar value="Negative">A33,A243</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A34</isNewUserForCar>
+        <isNewUserForCar value="1">A244</isNewUserForCar>
+        <isNewUserForCar value="Negative">A34,A244</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="KWL">
+      <tripType value="1">
+        <isNewUserForCar value="0">A35</isNewUserForCar>
+        <isNewUserForCar value="1">A245</isNewUserForCar>
+        <isNewUserForCar value="Negative">A35,A245</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A36</isNewUserForCar>
+        <isNewUserForCar value="1">A246</isNewUserForCar>
+        <isNewUserForCar value="Negative">A36,A246</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="KWE">
+      <tripType value="1">
+        <isNewUserForCar value="0">A37</isNewUserForCar>
+        <isNewUserForCar value="1">A247</isNewUserForCar>
+        <isNewUserForCar value="Negative">A37,A247</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A38</isNewUserForCar>
+        <isNewUserForCar value="1">A248</isNewUserForCar>
+        <isNewUserForCar value="Negative">A38,A248</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="ZUH">
+      <tripType value="1">
+        <isNewUserForCar value="0">A39</isNewUserForCar>
+        <isNewUserForCar value="1">A249</isNewUserForCar>
+        <isNewUserForCar value="Negative">A39,A249</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A250</isNewUserForCar>
+        <isNewUserForCar value="0">A40</isNewUserForCar>
+        <isNewUserForCar value="Negative">A250,A40</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="NKG">
+      <tripType value="1">
+        <isNewUserForCar value="1">A251</isNewUserForCar>
+        <isNewUserForCar value="0">A41</isNewUserForCar>
+        <isNewUserForCar value="Negative">A251,A41</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A252</isNewUserForCar>
+        <isNewUserForCar value="0">A42</isNewUserForCar>
+        <isNewUserForCar value="Negative">A252,A42</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="CGQ">
+      <tripType value="1">
+        <isNewUserForCar value="0">A43</isNewUserForCar>
+        <isNewUserForCar value="1">A253</isNewUserForCar>
+        <isNewUserForCar value="Negative">A43,A253</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A44</isNewUserForCar>
+        <isNewUserForCar value="1">A254</isNewUserForCar>
+        <isNewUserForCar value="Negative">A44,A254</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="CGO">
+      <tripType value="1">
+        <isNewUserForCar value="0">A45</isNewUserForCar>
+        <isNewUserForCar value="1">A255</isNewUserForCar>
+        <isNewUserForCar value="Negative">A45,A255</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A46</isNewUserForCar>
+        <isNewUserForCar value="1">A256</isNewUserForCar>
+        <isNewUserForCar value="Negative">A46,A256</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="XMN">
+      <isNewUserForCar value="0">
+        <tripType value="1">A47</tripType>
+        <tripType value="2">A48</tripType>
+        <tripType value="Negative">A47,A48</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="1">
+        <tripType value="2">A258</tripType>
+        <tripType value="1">A257</tripType>
+        <tripType value="Negative">A258,A257</tripType>
+      </isNewUserForCar>
+      <isNewUserForCar value="-1">
+        <userType value="-1">C10</userType>
+        <userType value="0">E1</userType>
+        <userType value="1">E4</userType>
+        <userType value="Negative">C10,E1,E4</userType>
+      </isNewUserForCar>
+    </cityCode>
+    <cityCode value="HFE">
+      <tripType value="1">
+        <isNewUserForCar value="0">A49</isNewUserForCar>
+        <isNewUserForCar value="1">A259</isNewUserForCar>
+        <isNewUserForCar value="Negative">A49,A259</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A260</isNewUserForCar>
+        <isNewUserForCar value="0">A50</isNewUserForCar>
+        <isNewUserForCar value="Negative">A260,A50</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="KMG">
+      <tripType value="1">
+        <isNewUserForCar value="1">A261</isNewUserForCar>
+        <isNewUserForCar value="0">A51</isNewUserForCar>
+        <isNewUserForCar value="Negative">A261,A51</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A262</isNewUserForCar>
+        <isNewUserForCar value="0">A52</isNewUserForCar>
+        <isNewUserForCar value="Negative">A262,A52</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="DLC">
+      <tripType value="1">
+        <isNewUserForCar value="1">A263</isNewUserForCar>
+        <isNewUserForCar value="0">A53</isNewUserForCar>
+        <isNewUserForCar value="Negative">A263,A53</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A54</isNewUserForCar>
+        <isNewUserForCar value="1">A264</isNewUserForCar>
+        <isNewUserForCar value="Negative">A54,A264</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="NGB">
+      <tripType value="1">
+        <isNewUserForCar value="0">A55</isNewUserForCar>
+        <isNewUserForCar value="1">A265</isNewUserForCar>
+        <isNewUserForCar value="Negative">A55,A265</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A56</isNewUserForCar>
+        <isNewUserForCar value="1">A266</isNewUserForCar>
+        <isNewUserForCar value="Negative">A56,A266</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="WNZ">
+      <tripType value="1">
+        <isNewUserForCar value="0">A57</isNewUserForCar>
+        <isNewUserForCar value="1">A267</isNewUserForCar>
+        <isNewUserForCar value="Negative">A57,A267</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A58</isNewUserForCar>
+        <isNewUserForCar value="1">A268</isNewUserForCar>
+        <isNewUserForCar value="Negative">A58,A268</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="FOC">
+      <tripType value="1">
+        <isNewUserForCar value="0">A59</isNewUserForCar>
+        <isNewUserForCar value="1">A269</isNewUserForCar>
+        <isNewUserForCar value="Negative">A59,A269</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A270</isNewUserForCar>
+        <isNewUserForCar value="0">A60</isNewUserForCar>
+        <isNewUserForCar value="Negative">A270,A60</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="JJN">
+      <tripType value="1">
+        <isNewUserForCar value="1">A271</isNewUserForCar>
+        <isNewUserForCar value="0">A61</isNewUserForCar>
+        <isNewUserForCar value="Negative">A271,A61</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A272</isNewUserForCar>
+        <isNewUserForCar value="0">A62</isNewUserForCar>
+        <isNewUserForCar value="Negative">A272,A62</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="WEH">
+      <tripType value="1">
+        <isNewUserForCar value="1">A273</isNewUserForCar>
+        <isNewUserForCar value="0">A63</isNewUserForCar>
+        <isNewUserForCar value="Negative">A273,A63</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A274</isNewUserForCar>
+        <isNewUserForCar value="0">A64</isNewUserForCar>
+        <isNewUserForCar value="Negative">A274,A64</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="LYA">
+      <tripType value="1">
+        <isNewUserForCar value="0">A65</isNewUserForCar>
+        <isNewUserForCar value="1">A275</isNewUserForCar>
+        <isNewUserForCar value="Negative">A65,A275</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A66</isNewUserForCar>
+        <isNewUserForCar value="1">A276</isNewUserForCar>
+        <isNewUserForCar value="Negative">A66,A276</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="NNG">
+      <tripType value="1">
+        <isNewUserForCar value="0">A67</isNewUserForCar>
+        <isNewUserForCar value="1">A277</isNewUserForCar>
+        <isNewUserForCar value="Negative">A67,A277</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A68</isNewUserForCar>
+        <isNewUserForCar value="1">A278</isNewUserForCar>
+        <isNewUserForCar value="Negative">A68,A278</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="SJW">
+      <tripType value="1">
+        <isNewUserForCar value="0">A69</isNewUserForCar>
+        <isNewUserForCar value="1">A279</isNewUserForCar>
+        <isNewUserForCar value="Negative">A69,A279</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A280</isNewUserForCar>
+        <isNewUserForCar value="0">A70</isNewUserForCar>
+        <isNewUserForCar value="Negative">A280,A70</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HRB">
+      <tripType value="1">
+        <isNewUserForCar value="1">A281</isNewUserForCar>
+        <isNewUserForCar value="0">A71</isNewUserForCar>
+        <isNewUserForCar value="Negative">A281,A71</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A282</isNewUserForCar>
+        <isNewUserForCar value="0">A72</isNewUserForCar>
+        <isNewUserForCar value="Negative">A282,A72</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HET">
+      <tripType value="1">
+        <isNewUserForCar value="1">A283</isNewUserForCar>
+        <isNewUserForCar value="0">A73</isNewUserForCar>
+        <isNewUserForCar value="Negative">A283,A73</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A284</isNewUserForCar>
+        <isNewUserForCar value="0">A74</isNewUserForCar>
+        <isNewUserForCar value="Negative">A284,A74</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="*">
+      <airportCode value="*">
+        <isNewUserForCar value="0">
+          <tripType value="1">A186</tripType>
+          <tripType value="2">A206</tripType>
+          <tripType value="Negative">A186,A206</tripType>
+        </isNewUserForCar>
+        <isNewUserForCar value="1">
+          <tripType value="1">A396</tripType>
+          <tripType value="2">A416</tripType>
+          <tripType value="Negative">A396,A416</tripType>
+        </isNewUserForCar>
+      </airportCode>
+      <airportCode value="PEK">
+        <isNewUserForOnePrice value="1">B58</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B1</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B58,B1</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="SZX">
+        <isNewUserForOnePrice value="0">B2</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B59</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B2,B59</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="XIY">
+        <isNewUserForOnePrice value="0">B3</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B60</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B3,B60</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CAN">
+        <isNewUserForOnePrice value="0">B4</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B61</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B4,B61</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CTU">
+        <isNewUserForOnePrice value="0">B5</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B62</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B5,B62</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="SHA">
+        <isNewUserForOnePrice value="0">B6</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B63</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B6,B63</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HGH">
+        <isNewUserForOnePrice value="1">B64</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B7</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B64,B7</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="WUH">
+        <isNewUserForOnePrice value="1">B65</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B8</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B65,B8</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="PVG">
+        <isNewUserForOnePrice value="1">B66</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B9</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B66,B9</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="XMN">
+        <isNewUserForOnePrice value="0">B10</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B67</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B10,B67</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CSX">
+        <isNewUserForOnePrice value="0">B11</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B68</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B11,B68</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CKG">
+        <isNewUserForOnePrice value="0">B12</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B69</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B12,B69</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="URC">
+        <isNewUserForOnePrice value="0">B13</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B70</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B13,B70</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="SYX">
+        <isNewUserForOnePrice value="0">B14</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B71</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B14,B71</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="KMG">
+        <isNewUserForOnePrice value="0">B15</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B72</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B15,B72</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="NKG">
+        <isNewUserForOnePrice value="0">B16</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B73</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B16,B73</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HRB">
+        <isNewUserForOnePrice value="0">B17</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B74</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B17,B74</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="KWE">
+        <isNewUserForOnePrice value="1">B75</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B18</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B75,B18</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="SHE">
+        <isNewUserForOnePrice value="1">B76</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B19</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B76,B19</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="FOC">
+        <isNewUserForOnePrice value="0">B20</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B77</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B20,B77</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CGO">
+        <isNewUserForOnePrice value="0">B21</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B78</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B21,B78</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="NNG">
+        <isNewUserForOnePrice value="0">B22</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B79</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B22,B79</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="TSN">
+        <isNewUserForOnePrice value="0">B23</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B80</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B23,B80</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="TNA">
+        <isNewUserForOnePrice value="0">B24</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B81</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B24,B81</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HFE">
+        <isNewUserForOnePrice value="0">B25</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B82</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B25,B82</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HAK">
+        <isNewUserForOnePrice value="0">B26</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B83</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B26,B83</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CGQ">
+        <isNewUserForOnePrice value="0">B27</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B84</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B27,B84</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="INC">
+        <isNewUserForOnePrice value="0">B28</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B85</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B28,B85</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="XNN">
+        <isNewUserForOnePrice value="1">B86</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B29</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B86,B29</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="TAO">
+        <isNewUserForOnePrice value="1">B87</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B30</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B87,B30</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="ZUH">
+        <isNewUserForOnePrice value="0">B31</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B88</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B31,B88</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="KHN">
+        <isNewUserForOnePrice value="0">B32</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B89</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B32,B89</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="SJW">
+        <isNewUserForOnePrice value="0">B33</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B90</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B33,B90</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="TYN">
+        <isNewUserForOnePrice value="0">B34</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B91</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B34,B91</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="LHW">
+        <isNewUserForOnePrice value="0">B35</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B92</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B35,B92</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="JJN">
+        <isNewUserForOnePrice value="0">B36</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B93</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B36,B93</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="BHY">
+        <isNewUserForOnePrice value="0">B37</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B94</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B37,B94</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HET">
+        <isNewUserForOnePrice value="0">B38</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B95</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B38,B95</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="DLC">
+        <isNewUserForOnePrice value="0">B39</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B96</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B39,B96</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="WNZ">
+        <isNewUserForOnePrice value="1">B97</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B40</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B97,B40</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="KWL">
+        <isNewUserForOnePrice value="1">B98</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B41</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B98,B41</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="NGB">
+        <isNewUserForOnePrice value="0">B42</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B99</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B42,B99</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="WUX">
+        <isNewUserForOnePrice value="0">B43</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B100</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B43,B100</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="CZX">
+        <isNewUserForOnePrice value="0">B44</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B101</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B44,B101</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="MIG">
+        <isNewUserForOnePrice value="0">B45</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B102</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B45,B102</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="XUZ">
+        <isNewUserForOnePrice value="0">B46</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B103</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B46,B103</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="NTG">
+        <isNewUserForOnePrice value="0">B47</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B104</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B47,B104</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="YIW">
+        <isNewUserForOnePrice value="0">B48</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B105</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B48,B105</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="BAV">
+        <isNewUserForOnePrice value="0">B49</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B106</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B49,B106</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HLD">
+        <isNewUserForOnePrice value="1">B107</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B50</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B107,B50</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HYN">
+        <isNewUserForOnePrice value="1">B108</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B51</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B108,B51</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="DNH">
+        <isNewUserForOnePrice value="1">B109</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="0">B52</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B109,B52</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="YIN">
+        <isNewUserForOnePrice value="0">B53</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B110</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B53,B110</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="JHG">
+        <isNewUserForOnePrice value="0">B54</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B111</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B54,B111</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="DLU">
+        <isNewUserForOnePrice value="0">B55</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B112</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B55,B112</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="LXA">
+        <isNewUserForOnePrice value="0">B56</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B113</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B56,B113</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="LZH">
+        <isNewUserForOnePrice value="0">B57</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="1">B114</isNewUserForOnePrice>
+        <isNewUserForOnePrice value="Negative">B57,B114</isNewUserForOnePrice>
+      </airportCode>
+      <airportCode value="HKG">F1</airportCode>
+    </cityCode>
+    <cityCode value="BAV">
+      <tripType value="1">
+        <isNewUserForCar value="0">A76</isNewUserForCar>
+        <isNewUserForCar value="1">A286</isNewUserForCar>
+        <isNewUserForCar value="Negative">A76,A286</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A77</isNewUserForCar>
+        <isNewUserForCar value="1">A287</isNewUserForCar>
+        <isNewUserForCar value="Negative">A77,A287</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HLD">
+      <tripType value="1">
+        <isNewUserForCar value="0">A78</isNewUserForCar>
+        <isNewUserForCar value="1">A288</isNewUserForCar>
+        <isNewUserForCar value="Negative">A78,A288</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A79</isNewUserForCar>
+        <isNewUserForCar value="1">A289</isNewUserForCar>
+        <isNewUserForCar value="Negative">A79,A289</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="APG">
+      <tripType value="1">
+        <isNewUserForCar value="1">A291</isNewUserForCar>
+        <isNewUserForCar value="0">A81</isNewUserForCar>
+        <isNewUserForCar value="Negative">A291,A81</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A292</isNewUserForCar>
+        <isNewUserForCar value="0">A82</isNewUserForCar>
+        <isNewUserForCar value="Negative">A292,A82</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="URC">
+      <tripType value="1">
+        <isNewUserForCar value="1">A293</isNewUserForCar>
+        <isNewUserForCar value="0">A83</isNewUserForCar>
+        <isNewUserForCar value="Negative">A293,A83</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A294</isNewUserForCar>
+        <isNewUserForCar value="0">A84</isNewUserForCar>
+        <isNewUserForCar value="Negative">A294,A84</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="KHN">
+      <tripType value="1">
+        <isNewUserForCar value="1">A295</isNewUserForCar>
+        <isNewUserForCar value="0">A85</isNewUserForCar>
+        <isNewUserForCar value="Negative">A295,A85</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A296</isNewUserForCar>
+        <isNewUserForCar value="0">A86</isNewUserForCar>
+        <isNewUserForCar value="Negative">A296,A86</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HYN">
+      <tripType value="1">
+        <isNewUserForCar value="0">A87</isNewUserForCar>
+        <isNewUserForCar value="1">A297</isNewUserForCar>
+        <isNewUserForCar value="Negative">A87,A297</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A88</isNewUserForCar>
+        <isNewUserForCar value="1">A298</isNewUserForCar>
+        <isNewUserForCar value="Negative">A88,A298</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="FUO">
+      <isNewUserForCar value="0">A89</isNewUserForCar>
+      <isNewUserForCar value="1">A299</isNewUserForCar>
+      <isNewUserForCar value="Negative">A89,A299</isNewUserForCar>
+    </cityCode>
+    <cityCode value="LJG">
+      <isNewUserForCar value="0">A90</isNewUserForCar>
+      <isNewUserForCar value="1">A300</isNewUserForCar>
+      <isNewUserForCar value="Negative">A90,A300</isNewUserForCar>
+    </cityCode>
+    <cityCode value="WUX">
+      <tripType value="1">
+        <isNewUserForCar value="0">A91</isNewUserForCar>
+        <isNewUserForCar value="1">A301</isNewUserForCar>
+        <isNewUserForCar value="Negative">A91,A301</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A92</isNewUserForCar>
+        <isNewUserForCar value="1">A302</isNewUserForCar>
+        <isNewUserForCar value="Negative">A92,A302</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="XNN">
+      <tripType value="1">
+        <isNewUserForCar value="0">A93</isNewUserForCar>
+        <isNewUserForCar value="1">A303</isNewUserForCar>
+        <isNewUserForCar value="Negative">A93,A303</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A304</isNewUserForCar>
+        <isNewUserForCar value="0">A94</isNewUserForCar>
+        <isNewUserForCar value="Negative">A304,A94</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="INC">
+      <tripType value="1">
+        <isNewUserForCar value="1">A305</isNewUserForCar>
+        <isNewUserForCar value="0">A95</isNewUserForCar>
+        <isNewUserForCar value="Negative">A305,A95</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A306</isNewUserForCar>
+        <isNewUserForCar value="0">A96</isNewUserForCar>
+        <isNewUserForCar value="Negative">A306,A96</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="LZH">
+      <tripType value="1">
+        <isNewUserForCar value="1">A307</isNewUserForCar>
+        <isNewUserForCar value="0">A97</isNewUserForCar>
+        <isNewUserForCar value="Negative">A307,A97</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A98</isNewUserForCar>
+        <isNewUserForCar value="1">A308</isNewUserForCar>
+        <isNewUserForCar value="Negative">A98,A308</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="DNH">
+      <tripType value="1">
+        <isNewUserForCar value="0">A99</isNewUserForCar>
+        <isNewUserForCar value="1">A309</isNewUserForCar>
+        <isNewUserForCar value="Negative">A99,A309</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A100</isNewUserForCar>
+        <isNewUserForCar value="1">A310</isNewUserForCar>
+        <isNewUserForCar value="Negative">A100,A310</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="YIN">
+      <tripType value="1">
+        <isNewUserForCar value="1">A311</isNewUserForCar>
+        <isNewUserForCar value="0">A101</isNewUserForCar>
+        <isNewUserForCar value="Negative">A311,A101</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A102</isNewUserForCar>
+        <isNewUserForCar value="1">A312</isNewUserForCar>
+        <isNewUserForCar value="Negative">A102,A312</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="ARU">
+      <tripType value="1">
+        <isNewUserForCar value="1">A313</isNewUserForCar>
+        <isNewUserForCar value="0">A103</isNewUserForCar>
+        <isNewUserForCar value="Negative">A313,A103</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A104</isNewUserForCar>
+        <isNewUserForCar value="1">A314</isNewUserForCar>
+        <isNewUserForCar value="Negative">A104,A314</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="CZX">
+      <tripType value="1">
+        <isNewUserForCar value="1">A315</isNewUserForCar>
+        <isNewUserForCar value="0">A105</isNewUserForCar>
+        <isNewUserForCar value="Negative">A315,A105</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A106</isNewUserForCar>
+        <isNewUserForCar value="1">A316</isNewUserForCar>
+        <isNewUserForCar value="Negative">A106,A316</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="NTG">
+      <tripType value="1">
+        <isNewUserForCar value="0">A108</isNewUserForCar>
+        <isNewUserForCar value="1">A318</isNewUserForCar>
+        <isNewUserForCar value="Negative">A108,A318</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A319</isNewUserForCar>
+        <isNewUserForCar value="0">A109</isNewUserForCar>
+        <isNewUserForCar value="Negative">A319,A109</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="XUZ">
+      <tripType value="1">
+        <isNewUserForCar value="0">A110</isNewUserForCar>
+        <isNewUserForCar value="1">A320</isNewUserForCar>
+        <isNewUserForCar value="Negative">A110,A320</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A111</isNewUserForCar>
+        <isNewUserForCar value="1">A321</isNewUserForCar>
+        <isNewUserForCar value="Negative">A111,A321</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="JZH">
+      <isNewUserForCar value="1">A322</isNewUserForCar>
+      <isNewUserForCar value="0">A112</isNewUserForCar>
+      <isNewUserForCar value="Negative">A322,A112</isNewUserForCar>
+    </cityCode>
+    <cityCode value="MIG">
+      <tripType value="1">
+        <isNewUserForCar value="0">A113</isNewUserForCar>
+        <isNewUserForCar value="1">A323</isNewUserForCar>
+        <isNewUserForCar value="Negative">A113,A323</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A324</isNewUserForCar>
+        <isNewUserForCar value="0">A114</isNewUserForCar>
+        <isNewUserForCar value="Negative">A324,A114</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="DLU">
+      <isNewUserForCar value="0">A115</isNewUserForCar>
+      <isNewUserForCar value="1">A325</isNewUserForCar>
+      <isNewUserForCar value="Negative">A115,A325</isNewUserForCar>
+    </cityCode>
+    <cityCode value="UYN">
+      <isNewUserForCar value="1">A326</isNewUserForCar>
+      <isNewUserForCar value="0">A116</isNewUserForCar>
+      <isNewUserForCar value="Negative">A326,A116</isNewUserForCar>
+    </cityCode>
+    <cityCode value="BHY">
+      <tripType value="1">
+        <isNewUserForCar value="0">A117</isNewUserForCar>
+        <isNewUserForCar value="1">A327</isNewUserForCar>
+        <isNewUserForCar value="Negative">A117,A327</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A328</isNewUserForCar>
+        <isNewUserForCar value="0">A118</isNewUserForCar>
+        <isNewUserForCar value="Negative">A328,A118</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="DSN">
+      <tripType value="1">
+        <isNewUserForCar value="0">A119</isNewUserForCar>
+        <isNewUserForCar value="1">A329</isNewUserForCar>
+        <isNewUserForCar value="Negative">A119,A329</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A120</isNewUserForCar>
+        <isNewUserForCar value="1">A330</isNewUserForCar>
+        <isNewUserForCar value="Negative">A120,A330</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="YIW">
+      <tripType value="1">
+        <isNewUserForCar value="0">A122</isNewUserForCar>
+        <isNewUserForCar value="1">A332</isNewUserForCar>
+        <isNewUserForCar value="Negative">A122,A332</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A333</isNewUserForCar>
+        <isNewUserForCar value="0">A123</isNewUserForCar>
+        <isNewUserForCar value="Negative">A333,A123</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="SWA">
+      <tripType value="1">
+        <isNewUserForCar value="0">A128</isNewUserForCar>
+        <isNewUserForCar value="1">A338</isNewUserForCar>
+        <isNewUserForCar value="Negative">A128,A338</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A339</isNewUserForCar>
+        <isNewUserForCar value="0">A129</isNewUserForCar>
+        <isNewUserForCar value="Negative">A339,A129</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HNY">
+      <tripType value="1">
+        <isNewUserForCar value="0">A131</isNewUserForCar>
+        <isNewUserForCar value="1">A341</isNewUserForCar>
+        <isNewUserForCar value="Negative">A131,A341</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A132</isNewUserForCar>
+        <isNewUserForCar value="1">A342</isNewUserForCar>
+        <isNewUserForCar value="Negative">A132,A342</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="WUZ">
+      <tripType value="1">
+        <isNewUserForCar value="0">A135</isNewUserForCar>
+        <isNewUserForCar value="1">A345</isNewUserForCar>
+        <isNewUserForCar value="Negative">A135,A345</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A346</isNewUserForCar>
+        <isNewUserForCar value="0">A136</isNewUserForCar>
+        <isNewUserForCar value="Negative">A346,A136</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="TXN">
+      <tripType value="1">
+        <isNewUserForCar value="0">A137</isNewUserForCar>
+        <isNewUserForCar value="1">A347</isNewUserForCar>
+        <isNewUserForCar value="Negative">A137,A347</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A348</isNewUserForCar>
+        <isNewUserForCar value="0">A138</isNewUserForCar>
+        <isNewUserForCar value="Negative">A348,A138</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="BFU">
+      <isNewUserForCar value="0">A139</isNewUserForCar>
+      <isNewUserForCar value="1">A349</isNewUserForCar>
+      <isNewUserForCar value="Negative">A139,A349</isNewUserForCar>
+    </cityCode>
+    <cityCode value="YNT">
+      <tripType value="1">
+        <isNewUserForCar value="0">A144</isNewUserForCar>
+        <isNewUserForCar value="1">A354</isNewUserForCar>
+        <isNewUserForCar value="Negative">A144,A354</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A355</isNewUserForCar>
+        <isNewUserForCar value="0">A145</isNewUserForCar>
+        <isNewUserForCar value="Negative">A355,A145</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="KOW">
+      <tripType value="1">
+        <isNewUserForCar value="1">A359</isNewUserForCar>
+        <isNewUserForCar value="0">A149</isNewUserForCar>
+        <isNewUserForCar value="Negative">A359,A149</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A360</isNewUserForCar>
+        <isNewUserForCar value="0">A150</isNewUserForCar>
+        <isNewUserForCar value="Negative">A360,A150</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="JIU">
+      <isNewUserForCar value="0">A151</isNewUserForCar>
+      <isNewUserForCar value="1">A361</isNewUserForCar>
+      <isNewUserForCar value="Negative">A151,A361</isNewUserForCar>
+    </cityCode>
+    <cityCode value="HUZ">
+      <tripType value="1">
+        <isNewUserForCar value="0">A154</isNewUserForCar>
+        <isNewUserForCar value="1">A364</isNewUserForCar>
+        <isNewUserForCar value="Negative">A154,A364</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A155</isNewUserForCar>
+        <isNewUserForCar value="1">A365</isNewUserForCar>
+        <isNewUserForCar value="Negative">A155,A365</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="RSU">
+      <isNewUserForCar value="1">A368</isNewUserForCar>
+      <isNewUserForCar value="0">A158</isNewUserForCar>
+      <isNewUserForCar value="Negative">A368,A158</isNewUserForCar>
+    </cityCode>
+    <cityCode value="JUZ">
+      <isNewUserForCar value="0">A159</isNewUserForCar>
+      <isNewUserForCar value="1">A369</isNewUserForCar>
+      <isNewUserForCar value="Negative">A159,A369</isNewUserForCar>
+    </cityCode>
+    <cityCode value="FUG">
+      <tripType value="1">
+        <isNewUserForCar value="1">A373</isNewUserForCar>
+        <isNewUserForCar value="0">A163</isNewUserForCar>
+        <isNewUserForCar value="Negative">A373,A163</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="0">A164</isNewUserForCar>
+        <isNewUserForCar value="1">A374</isNewUserForCar>
+        <isNewUserForCar value="Negative">A164,A374</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="WEF">
+      <isNewUserForCar value="0">A166</isNewUserForCar>
+      <isNewUserForCar value="1">A376</isNewUserForCar>
+      <isNewUserForCar value="Negative">A166,A376</isNewUserForCar>
+    </cityCode>
+    <cityCode value="YTY">
+      <tripType value="1">
+        <isNewUserForCar value="1">A379</isNewUserForCar>
+        <isNewUserForCar value="0">A169</isNewUserForCar>
+        <isNewUserForCar value="Negative">A379,A169</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A380</isNewUserForCar>
+        <isNewUserForCar value="0">A170</isNewUserForCar>
+        <isNewUserForCar value="Negative">A380,A170</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="ENE">
+      <isNewUserForCar value="1">A382</isNewUserForCar>
+      <isNewUserForCar value="0">A172</isNewUserForCar>
+      <isNewUserForCar value="Negative">A382,A172</isNewUserForCar>
+    </cityCode>
+    <cityCode value="SHS">
+      <isNewUserForCar value="0">A173</isNewUserForCar>
+      <isNewUserForCar value="1">A383</isNewUserForCar>
+      <isNewUserForCar value="Negative">A173,A383</isNewUserForCar>
+    </cityCode>
+    <cityCode value="XFN">
+      <isNewUserForCar value="0">A175</isNewUserForCar>
+      <isNewUserForCar value="1">A385</isNewUserForCar>
+      <isNewUserForCar value="Negative">A175,A385</isNewUserForCar>
+    </cityCode>
+    <cityCode value="WYS">
+      <isNewUserForCar value="1">A395</isNewUserForCar>
+      <isNewUserForCar value="0">A185</isNewUserForCar>
+      <isNewUserForCar value="Negative">A395,A185</isNewUserForCar>
+    </cityCode>
+    <cityCode value="AQG">
+      <tripType value="1">
+        <isNewUserForCar value="0">A188</isNewUserForCar>
+        <isNewUserForCar value="1">A398</isNewUserForCar>
+        <isNewUserForCar value="Negative">A188,A398</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A399</isNewUserForCar>
+        <isNewUserForCar value="0">A189</isNewUserForCar>
+        <isNewUserForCar value="Negative">A399,A189</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="HJJ">
+      <isNewUserForCar value="0">A195</isNewUserForCar>
+      <isNewUserForCar value="1">A405</isNewUserForCar>
+      <isNewUserForCar value="Negative">A195,A405</isNewUserForCar>
+    </cityCode>
+    <cityCode value="ZGN">
+      <isNewUserForCar value="0">A196</isNewUserForCar>
+      <isNewUserForCar value="1">A406</isNewUserForCar>
+      <isNewUserForCar value="Negative">A196,A406</isNewUserForCar>
+    </cityCode>
+    <cityCode value="NNY">
+      <isNewUserForCar value="0">A198</isNewUserForCar>
+      <isNewUserForCar value="1">A408</isNewUserForCar>
+      <isNewUserForCar value="Negative">A198,A408</isNewUserForCar>
+    </cityCode>
+    <cityCode value="ZYI">
+      <isNewUserForCar value="1">A409</isNewUserForCar>
+      <isNewUserForCar value="0">A199</isNewUserForCar>
+      <isNewUserForCar value="Negative">A409,A199</isNewUserForCar>
+    </cityCode>
+    <cityCode value="WGN">
+      <isNewUserForCar value="1">A412</isNewUserForCar>
+      <isNewUserForCar value="0">A202</isNewUserForCar>
+      <isNewUserForCar value="Negative">A412,A202</isNewUserForCar>
+    </cityCode>
+    <cityCode value="KIR">
+      <isNewUserForCar value="0">A203</isNewUserForCar>
+      <isNewUserForCar value="1">A413</isNewUserForCar>
+      <isNewUserForCar value="Negative">A203,A413</isNewUserForCar>
+    </cityCode>
+    <cityCode value="HZG">
+      <tripType value="1">
+        <isNewUserForCar value="0">A207</isNewUserForCar>
+        <isNewUserForCar value="1">A417</isNewUserForCar>
+        <isNewUserForCar value="Negative">A207,A417</isNewUserForCar>
+      </tripType>
+      <tripType value="2">
+        <isNewUserForCar value="1">A418</isNewUserForCar>
+        <isNewUserForCar value="0">A208</isNewUserForCar>
+        <isNewUserForCar value="Negative">A418,A208</isNewUserForCar>
+      </tripType>
+    </cityCode>
+    <cityCode value="LLF">
+      <isNewUserForCar value="0">A209</isNewUserForCar>
+      <isNewUserForCar value="1">A419</isNewUserForCar>
+      <isNewUserForCar value="Negative">A209,A419</isNewUserForCar>
+    </cityCode>
+    <cityCode value="LZY">
+      <isNewUserForCar value="0">A210</isNewUserForCar>
+      <isNewUserForCar value="1">A420</isNewUserForCar>
+      <isNewUserForCar value="Negative">A210,A420</isNewUserForCar>
+    </cityCode>
   </Decision>
 </root>

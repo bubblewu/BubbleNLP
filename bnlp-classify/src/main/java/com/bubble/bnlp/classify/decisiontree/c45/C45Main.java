@@ -28,7 +28,9 @@ public class C45Main {
     private static void test() {
         String input = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisiontree/c45/product-old.data";
         String output = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisiontree/c45/product";
-        C45Model.train(input, output);
+        String dataFile = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisiontree/other/car-product.csv";
+
+        C45Model.train(dataFile, output);
 
     }
 

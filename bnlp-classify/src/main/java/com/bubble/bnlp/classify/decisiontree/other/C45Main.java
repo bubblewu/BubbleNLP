@@ -21,15 +21,17 @@ public class C45Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(C45Main.class);
 
     public static void main(String[] args) {
-        String dataFile = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisiontree/other/product.data";
+        String dataFile = "/Users/wugang/workspace/java/BubbleNLP/bnlp-classify/src/main/java/com/bubble/bnlp/classify/decisiontree/other/car-product.csv";
         List<String> lines = FileUtils.readFile(dataFile);
         List<String> featureNames = Lists.newArrayList();
-        lines.stream().limit(1).forEach(line -> featureNames.addAll(Arrays.stream(StringUtils.split(line, " ")).collect(Collectors.toList())));
-        TypedDataSet dataSet = new TypedDataSet(String.class, String.class, String.class, String.class, String.class, String.class);
-        lines.stream().skip(1).forEach(line -> dataSet.add(StringUtils.split(line, " ")));
+        lines.stream().limit(1).forEach(line -> featureNames.addAll(Arrays.stream(StringUtils.split(line, ",")).collect(Collectors.toList())));
+        TypedDataSet dataSet = new TypedDataSet(Integer.class, Integer.class, Integer.class, Integer.class,
+                String.class, String.class, String.class, String.class,
+                Integer.class, Integer.class, String.class);
+        lines.stream().skip(1).forEach(line -> dataSet.add(StringUtils.split(line, ",")));
         LOGGER.info("Data records: {}, Valid: {}.", lines.size(), dataSet.size());
         C45 job = new C45();
-        job.process(dataSet, 5, Arrays.asList(0, 1, 2, 3, 4), featureNames);
+        job.process(dataSet, 11, Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10), featureNames);
     }
 
 }
